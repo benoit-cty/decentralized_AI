@@ -1,0 +1,18 @@
+{
+  "description": "My iExec ressource description",
+  "license": "MIT",
+  "author": "?",
+  "social": {
+    "website": "?",
+    "github": "?"
+  },
+  "logo": "logo.png",
+  "app": {
+    "name": "my-dapp",
+    "price": 1,
+    "params": {
+      "type": "DOCKER",
+      "envvars": "XWDOCKERIMAGE=hello-world"
+    }
+  }
+}
