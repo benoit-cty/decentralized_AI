@@ -9,7 +9,7 @@
   "logo": "logo.png",
   "app": {
     "name": "Keras",
-    "price": 1,
+    "price": 0,
     "params": {
       "type": "DOCKER",
       "envvars": "XWDOCKERIMAGE=trancept/keras_mnist:v0"

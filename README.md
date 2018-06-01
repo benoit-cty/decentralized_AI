@@ -13,22 +13,56 @@ docker push trancept/keras_mnist:v0
 => It will train an AI to do OCR on the well known MNIST dataset.
 Dockerfile is based on work from https://github.com/gw0/docker-keras , thanks to him.
 
-## Adding docker image to iExec
+## iExec project
 
+```
+# Init project
+
+# Get money
+iexec wallet getRLC
+=> For ETH, on Kovan you have to go to ask for it on https://gitter.im/kovan-testnet
+# Check your wallet
+iexec wallet show
+=> You need to have ETH and RLC
+# Send money to the iExec account/Marketplace to use it
+iexec account deposit 100
+# Check money
+iexec account show
+```
+
+### Deploy
+
+Adding docker image to iExec :
 - Edit iexec.js
-- Run
+- Run :
 ```
 iexec app deploy
 iexec app show
-$ iexec order init --buy
-ℹ using chain [kovan]
-✔ Saved default order in "iexec.json", you can edit it:
-app:     0xf0e67cfc243801f78abe21e0704a9e8c31cff703
-dataset: 0x0000000000000000000000000000000000000000
-params: 
-  cmdline: --help
-ben@rig:~/src/decentralized_AI$ iexec order place
-✖ command "iexec order place" failed with Error: Missing order. You probably forgot to run "iexec order init --sell"
 ```
 
-=> So it's a Fail for now.
+Deploy your app after code change :
+```
+iexec app deploy
+```
+
+### Execute Dapp
+
+You have to initiate an order to buy computing ressource, then find one avaliable, then buy it !
+
+```
+iexec order init --buy
+# Show available computing ressource
+iexec orderbook show --category 5
+# Check a ressource
+iexec order show 170
+# Buy the ressource
+iexec order fill 170
+# Check the status
+iexec work show 0x7ec5f9af4f5b4e137b6e6fc311c8a21df3276e7e
+# Download the result
+iexec work show 0x7ec5f9af4f5b4e137b6e6fc311c8a21df3276e7e --download
+```
+
+
+
+
