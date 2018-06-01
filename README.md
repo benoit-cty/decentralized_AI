@@ -40,17 +40,16 @@ iexec app deploy
 iexec app show
 ```
 
-Deploy your app after code change :
-```
-iexec app deploy
-```
-
 ### Execute Dapp
 
 You have to initiate an order to buy computing ressource, then find one avaliable, then buy it !
 
 ```
 iexec order init --buy
+```
+*Important* : You have to edit iexec.json at these step to edit the "params" string to match the parameters you want to send to the job.
+
+```
 # Show available computing ressource
 iexec orderbook show --category 5
 # Check a ressource
@@ -58,7 +57,7 @@ iexec order show 170
 # Buy the ressource
 iexec order fill 170
 # Check the status
-iexec work show 0x7ec5f9af4f5b4e137b6e6fc311c8a21df3276e7e
+iexec work show 0x678870d393e7242bae389d7505effe9a9eed7345 --watch
 # Download the result
 iexec work show 0x7ec5f9af4f5b4e137b6e6fc311c8a21df3276e7e --download
 ```
