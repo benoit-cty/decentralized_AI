@@ -8,7 +8,7 @@ My work was only to make a Docker image, based on the Modern Deep-learning conta
 Add a modified version of the demo and package it for iExec.
 
 iExec is a whole ecosystem with a market-place for DApps, Oracle mechanism, Scheduler, workers,... Dedicated to off-chain computing in a fully decentralized way.
-(https://iex.ec/app/uploads/2017/08/decentralized-cloud-infographic@3x-1.png)
+(https://cdn-images-1.medium.com/max/1200/1*iiERfyS1iqvVXNCXFrghfA.jpeg)
 
 The V2 is just out (speaking from 1st of June 2018).
 
