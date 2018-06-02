@@ -17,6 +17,7 @@ The V2 is just out (speaking from 1st of June 2018).
 The result is that you can call it quite like an API to get your resulting image :
 
 
+
 ## Building the Docker Image
 
 ```
@@ -52,15 +53,22 @@ Adding docker image to iExec :
 iexec app deploy
 iexec app show
 ```
-
-### Execute Dapp
-
-You have to initiate an order to buy computing ressource, then find one avaliable, then buy it !
+Prepare order
 
 ```
 iexec order init --buy
 ```
 *Important* : You have to edit iexec.json at these step to edit the "params" string to match the parameters you want to send to the job.
+
+
+### How to execute Dapp
+
+
+. Clone the repository
+. Change the image url in iexec.json
+. run
+
+You have to initiate an order to buy computing ressource, then find one available, then buy it !
 
 ```
 # Show available computing ressource
@@ -70,7 +78,7 @@ iexec order show 170
 # Buy the ressource
 iexec order fill 170
 # Check the status
-iexec work show 0x36c7cd6ce2122be2aa1e551bfc5a5e601d6896a5 --watch
+iexec work show 0x17fccaa99a9e16898984de30d4e9a3906493f384 --watch
 # Download the result
 iexec work show 0x36c7cd6ce2122be2aa1e551bfc5a5e601d6896a5 --download
 ```

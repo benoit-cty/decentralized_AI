@@ -102,4 +102,4 @@ visualize.display_instances(image, r['rois'], r['masks'], r['class_ids'],
                                 class_names, r['scores'])
 output_file = "{}/{}.png".format("/iexec", datetime.now().strftime('%Y%m%d_%H%M%S'))
 print("Save results to ", output_file)
-plt.savefig(output_file)
+plt.savefig(output_file, bbox_inches='tight')
