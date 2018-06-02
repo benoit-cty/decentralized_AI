@@ -1,17 +1,30 @@
 # decentralized_AI
 
-This is a first try at building a Decentralized AI.
+This is a first try at building a "Decentralized AI". Well it is just a semantic segmentation task that run in a decentralized fashion : The task is done on a machine in the internet, like in a proprietary cloud, but on a decentralized cloud : you do not have to create an account with the computer owner. All is handle by iExec.
+
+The semantic segmentation is done by the Mask_RCNN (https://github.com/matterport/Mask_RCNN) project trained on the COCO Dataset (http://cocodataset.org/).
+
+My work was only to make a Docker image, based on the Modern Deep-learning container https://hub.docker.com/r/waleedka/modern-deep-learning/ from Waleed Abdulla, add Mask_RCNN in it.
+Add a modified version of the demo and package it for iExec.
+
+iExec is a whole ecosystem with a market-place for DApps, Oracle mechanism, Scheduler, workers,... Dedicated to off-chain computing in a fully decentralized way.
+(https://iex.ec/app/uploads/2017/08/decentralized-cloud-infographic@3x-1.png)
+
+The V2 is just out (speaking from 1st of June 2018).
+
+[iExec SDK](https://github.com/iExecBlockchainComputing/iexec-sdk) is a NodeJS application who allow to easily create and manage your application.
+
+The result is that you can call it quite like an API to get your resulting image :
+
 
 ## Building the Docker Image
 
 ```
-docker build docker_keras_cpu/ -t trancept/keras_mnist:v0
-docker run -v /tmp:/iexec trancept/keras_mnist:v0
-docker push trancept/keras_mnist:v0
+docker build docker_keras_cpu/ -t trancept/keras_mrcnn:v0
+docker run -v $(pwd):/iexec trancept/keras_mrcnn:v0 http://fr.ubergizmo.com/wp-content/uploads/2017/11/nouvel-algorithme-correction-panoramas-google-street-view.jpg
+docker push trancept/keras_mrcnn:v0
 ```
 
-=> It will train an AI to do OCR on the well known MNIST dataset.
-Dockerfile is based on work from https://github.com/gw0/docker-keras , thanks to him.
 
 ## iExec project
 
@@ -57,11 +70,7 @@ iexec order show 170
 # Buy the ressource
 iexec order fill 170
 # Check the status
-iexec work show 0x678870d393e7242bae389d7505effe9a9eed7345 --watch
+iexec work show 0x36c7cd6ce2122be2aa1e551bfc5a5e601d6896a5 --watch
 # Download the result
-iexec work show 0x7ec5f9af4f5b4e137b6e6fc311c8a21df3276e7e --download
+iexec work show 0x36c7cd6ce2122be2aa1e551bfc5a5e601d6896a5 --download
 ```
-
-
-
-

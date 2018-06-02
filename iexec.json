@@ -1,25 +1,27 @@
 {
-  "description": "MNIST training with Keras+Tensorflow",
+  "description": "Semantic segmentation with Keras+Tensorflow",
   "license": "MIT",
   "author": "Benoit Courty",
   "social": {
     "website": "htt://courty.fr",
-    "github": "https://github.com/trancept/"
+    "github": "https://github.com/trancept/decentralized_AI"
   },
   "logo": "logo.png",
   "app": {
     "name": "Keras",
-    "price": 0,
+    "price": 1,
     "params": {
       "type": "DOCKER",
-      "envvars": "XWDOCKERIMAGE=trancept/keras_mnist:v0"
+      "envvars": "XWDOCKERIMAGE=trancept/keras_mrcnn:v0"
     }
   },
   "order": {
     "buy": {
-      "app": "0xed5ae66b1db0d2a214d3130676b0e7675b8fb31c",
+      "app": "0x88cca1797cd9666bf673a790e924870fdf06b7e1",
       "dataset": "0x0000000000000000000000000000000000000000",
-	"params": ""
+      "params": {
+        "cmdline": "http://fr.ubergizmo.com/wp-content/uploads/2017/11/nouvel-algorithme-correction-panoramas-google-street-view.jpg"
+      }
     }
   }
 }
