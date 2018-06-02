@@ -17,7 +17,7 @@
   },
   "order": {
     "buy": {
-      "app": "0x88cca1797cd9666bf673a790e924870fdf06b7e1",
+      "app": "0xc790d024ec41a7649e7a0590e4ae05891fa61ef8",
       "dataset": "0x0000000000000000000000000000000000000000",
       "params": {
         "cmdline": "http://fr.ubergizmo.com/wp-content/uploads/2017/11/nouvel-algorithme-correction-panoramas-google-street-view.jpg"
