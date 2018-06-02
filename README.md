@@ -64,7 +64,7 @@ iexec order init --buy
 
 ```
 # Show available computing ressource
-iexec orderbook show --category 5
+iexec orderbook show --category 3
 # Check a ressource
 iexec order show 170
 # Buy the ressource
