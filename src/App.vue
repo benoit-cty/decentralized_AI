@@ -25,7 +25,7 @@
           }"
           @change="onChange">
         </picture-input>
-        <v-btn raised @click="iexec">
+        <v-btn raised @click="iexec('175')">
           IExec !
         </v-btn>
       </v-container>
@@ -78,15 +78,21 @@
           console.log('FileReader API not supported: use the <form>, Luke!')
         }
       },
-      iexec () {
+      async iexec (orderID) {
+        if (!this.contracts) return
+        const marketplaceAddress = await this.contracts.fetchMarketplaceAddress();
+        const orderRPC = await this.contracts
+          .getMarketplaceContract({ at: marketplaceAddress })
+          .getMarketOrder(orderID);
+
         const args = [
-          175, // orderID,
-          '0xb79A8F71ffC01900663635271C557F97e33E2C6E', // orderRPC.workerpool,
+          orderID,
+          orderRPC.workerpool,
           '0xec3CF9FF711268ef329658DD2D233483Bd0127e6', // dappAddress,
-          '0x0000000000000000000000000000000000000000',
+          '0x0000000000000000000000000000000000000000', // dataset
           '{"cmdline":"https://storage.canalblog.com/78/32/802934/60160490.jpg"}',
-          '0x0000000000000000000000000000000000000000',
-          '0x0000000000000000000000000000000000000000',
+          '0x0000000000000000000000000000000000000000', // callback
+          '0x0000000000000000000000000000000000000000', // beneficiary
         ]
         const transactionHash = this.contracts
           .getHubContract()
