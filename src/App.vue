@@ -29,9 +29,26 @@
           }"
           @change="onChange">
         </picture-input>
-        <v-btn raised @click="iexec('178')">
-          IExec !
-        </v-btn>
+      </v-container>
+      <v-container fluid>
+        <v-layout row>
+          <v-flex xs4>
+            <v-subheader>Order ID</v-subheader>
+          </v-flex>
+          <v-flex xs8>
+            <v-text-field
+              id="orderId"
+              name="input-1"
+              label="Enter the order id"
+              v-model="orderId"
+            ></v-text-field>
+          </v-flex>
+        </v-layout>
+        <v-layout>
+          <v-btn block raised @click="iexec">
+            IExec !
+          </v-btn>
+        </v-layout>
       </v-container>
     </v-content>
      <v-snackbar
@@ -56,12 +73,12 @@
         image: null,
         snackbar: false,
         message: "",
+        orderId: '152'
       }
     },
     computed: {
       contracts () {
         if (this.$ethjs && this.$account && this.$chainId) {
-          console.log(chains[this.$chainId].hub)
           return createIExecContracts({
             eth: this.$ethjs,
             chainID: this.$chainId,
@@ -90,6 +107,9 @@
     watch: {
       contracts (val) {
         console.log(val)
+        this.contracts.waitForReceipt('0x9d7fbee7b024d777f8a32f9f5a912462a0c11b52bbd95e1cca2d0f6266bf463a').then((receipt) => {
+          console.log(receipt);
+        })
       }
     },
     methods: {
@@ -102,15 +122,18 @@
           console.log('FileReader API not supported: use the <form>, Luke!')
         }
       },
-      async iexec (orderID) {
+      async iexec () {
         if (!this.contracts) return
+        
         const marketplaceAddress = await this.contracts.fetchMarketplaceAddress();
         const orderRPC = await this.contracts
           .getMarketplaceContract({ at: marketplaceAddress })
-          .getMarketOrder(orderID);
-
+          .getMarketOrder(this.orderId);
+        
+        if (!orderRPC) return
+        
         const args = [
-          orderID,
+          this.orderId,
           orderRPC.workerpool,
           '0xec3CF9FF711268ef329658DD2D233483Bd0127e6', // dappAddress,
           '0x0000000000000000000000000000000000000000', // dataset
@@ -124,7 +147,11 @@
 
         this.message = `Fill order submitted. Waiting for transaction ${transactionHash} to be processed`
         this.snackbar = true
+        
         console.log(transactionHash)
+
+        const receipt = await this.contracts.waitForReceipt(transactionHash)
+        console.log(receipt)
       }
     },
     components: {
