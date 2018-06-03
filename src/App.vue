@@ -25,7 +25,7 @@
           }"
           @change="onChange">
         </picture-input>
-        <v-btn raised @click="iexec('175')">
+        <v-btn raised @click="iexec('178')">
           IExec !
         </v-btn>
       </v-container>
@@ -94,7 +94,7 @@
           '0x0000000000000000000000000000000000000000', // callback
           '0x0000000000000000000000000000000000000000', // beneficiary
         ]
-        const transactionHash = this.contracts
+        const transactionHash = await this.contracts
           .getHubContract()
           .buyForWorkOrder(...args)
         console.log(transactionHash)
