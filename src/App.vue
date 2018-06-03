@@ -30,6 +30,14 @@
         </v-btn>
       </v-container>
     </v-content>
+     <v-snackbar
+      top
+      multi-line
+      v-model="snackbar"
+    >
+      {{ message }}
+      <v-btn flat color="pink" @click.native="snackbar = false">Close</v-btn>
+    </v-snackbar>
   </v-app>
 </template>
 
@@ -41,7 +49,9 @@
   export default {
     data () {
       return {
-        image: null
+        image: null,
+        snackbar: false,
+        message: ""
       }
     },
     computed: {
@@ -97,6 +107,9 @@
         const transactionHash = await this.contracts
           .getHubContract()
           .buyForWorkOrder(...args)
+
+        this.message = `Fill order submitted. Waiting for transaction ${transactionHash} to be processed`
+        this.snackbar = true
         console.log(transactionHash)
       }
     },
