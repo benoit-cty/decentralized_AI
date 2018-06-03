@@ -6,6 +6,10 @@
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-title>
+        RLC : {{ rlc }}
+      </v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-toolbar-title>
         {{ currChain }}
       </v-toolbar-title>
     </v-toolbar>
@@ -51,7 +55,7 @@
       return {
         image: null,
         snackbar: false,
-        message: ""
+        message: "",
       }
     },
     computed: {
@@ -71,6 +75,16 @@
       },
       currChain () {
         return chainsMap[this.$chainId];
+      }
+    },
+    asyncComputed: {
+      async rlc () {
+        if (!this.contracts) return 0
+        const rlcAddress = await this.contracts.fetchRLCAddress();
+        const { balance } = await this.contracts
+          .getRLCContract({at: rlcAddress})
+          .balanceOf(this.$account);
+        return balance.toString()
       }
     },
     watch: {

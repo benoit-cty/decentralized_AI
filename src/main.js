@@ -4,10 +4,12 @@ import Vuetify from 'vuetify'
 import EthJs from 'ethjs'
 import createIExecContracts from 'iexec-contracts-js-client'
 import { chains, DEFAULT_CHAIN } from './chains'
+import AsyncComputed from 'vue-async-computed'
 
 import 'vuetify/dist/vuetify.css'
 
 Vue.use(Vuetify)
+Vue.use(AsyncComputed)
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 const debug = console.log;
