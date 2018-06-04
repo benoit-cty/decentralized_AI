@@ -101,11 +101,14 @@
 
   import createIExecContracts from 'iexec-contracts-js-client';
   import { chains, chainsMap } from './chains'
+  
+  import buffer from 'buffer'
 
   export default {
     data () {
       return {
         image: null,
+        image_url: null,
         snackbar: false,
         message: "",
         orderId: '152',
@@ -147,11 +150,27 @@
       }
     },
     methods: {
+      notify (message) {
+        this.message = message
+        this.snackbar = true
+      },
       onChange (image) {
         console.log('New picture selected!')
         if (image) {
           console.log('Picture loaded.')
           this.image = image
+          this.image_url = null
+          this.$ipfs.add([buffer.Buffer(image)], (err, res) => {
+              if (err) throw err
+              const hash = res[0].hash
+              console.log('hash', hash);
+              this.image_url = `/ipfs/${hash}`
+              this.notify(`Image successfully uploaded to IPFS [${this.image_url}]`)
+              this.$ipfs.cat(hash, (err, res) => {
+                if (err) throw err
+                this.image = [].reduce.call(res, (p,c) => p+String.fromCharCode(c),'')
+              })
+          })
         } else {
           console.log('FileReader API not supported: use the <form>, Luke!')
         }
@@ -187,8 +206,7 @@
           console.log(result)
         });
 
-        this.message = `Fill order submitted. Waiting for transaction ${transactionHash} to be processed`
-        this.snackbar = true
+        this.notify(`Fill order submitted. Waiting for transaction ${transactionHash} to be processed`)
         
         console.log(transactionHash)
 

@@ -6,6 +6,7 @@ import createIExecContracts from 'iexec-contracts-js-client'
 import createIEXECClient from 'iexec-server-js-client'
 import { chains, DEFAULT_CHAIN } from './chains'
 import AsyncComputed from 'vue-async-computed'
+import IpfsApi from 'ipfs-api'
 
 import 'vuetify/dist/vuetify.css'
 
@@ -16,9 +17,12 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 const debug = console.log;
 
 const iexec = createIEXECClient({ server: 'https://testxw.iex.ec:443' });
+const ipfs = IpfsApi('localhost', '5001');
+//const ipfs = IpfsApi({ host: 'ipfs.infura.io', port: 5001, protocol: 'https' });
 
 let Global = new Vue({
   data: {
+    $ipfs: ipfs,
     $iexec: iexec,
     $ethjs: null,
     $account: null,
@@ -28,6 +32,9 @@ let Global = new Vue({
 
 Vue.mixin({
   computed: {
+    $ipfs: {
+      get: () => Global.$data.$ipfs
+    },
     $iexec: {
       get: () => Global.$data.$iexec
     },
@@ -53,13 +60,28 @@ new Vue({
   el: '#app',
   watch: {
     $account(account) {
-      this.$iexec.auth(web3.currentProvider, account).then(({ jwtoken, cookie }) => {
-        console.log(jwtoken); // this is given by auth.iex.ec server
-        console.log(cookie); // this is given by iExec server
-      });
+      // this.$iexec.auth(web3.currentProvider, account).then(({ jwtoken, cookie }) => {
+      //   console.log(jwtoken); // this is given by auth.iex.ec server
+      //   console.log(cookie); // this is given by iExec server
+      // });
     }
   },
   async mounted () {
+    this.$ipfs.swarm.peers((err, res) => {
+      if (err) {
+        console.error("IPFS ERROR :" + err)
+      } else {
+        console.log("IPFS - connected.")
+      }
+    })
+
+    this.$ipfs.id((err, res) => {
+      if (err) throw err
+        debug('IPFS id :', res.id)
+        debug('IPFS agentVersion :', res.agentVersion)
+        debug('IPFS protocolVersion :', res.protocolVersion)
+    })
+
     if (typeof window.web3 !== 'undefined') {
       this.$ethjs = new EthJs(window.web3.currentProvider);
       debug('ethjs', this.$ethjs);
@@ -114,15 +136,5 @@ new Vue({
       debug('No web3, need to install metamask');
     }
   },
-  // mounted () {
-  //   this.$iexec.auth(web3.currentProvider, web3.eth.accounts[0]).then(({ jwtoken, cookie }) => {
-  //     console.log(jwtoken); // this is given by auth.iex.ec server
-  //     console.log(cookie); // this is given by iExec server
-  //     // hit iExec server API
-      
-  //     this.$iexec.getAppByName("0xec3cf9ff711268ef329658dd2d233483bd0127e6").then(console.log); // print app description from deploy txHash
-  //     this.$iexec.getWorkByExternalID("0x84b4a80628352c78ca71eeedd4e8cbf5fc07103036d39bb6f1b9956ba30ca0b3").then(console.log); // print work description from submit txHash
-  //   });
-  // },
   render: h => h(App)
 })
