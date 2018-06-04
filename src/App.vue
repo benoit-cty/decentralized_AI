@@ -47,6 +47,32 @@
               </v-flex>
             </v-layout>
             <v-layout>
+              <v-flex xs4>
+                <v-subheader>dApp</v-subheader>
+              </v-flex>
+              <v-flex xs8>
+                <v-text-field
+                  id="dapp"
+                  name="input-1"
+                  label="Enter the dApp address"
+                  v-model="dapp"
+                ></v-text-field>
+              </v-flex>
+            </v-layout>
+            <v-layout>
+              <v-flex xs4>
+                <v-subheader>params</v-subheader>
+              </v-flex>
+              <v-flex xs8>
+                <v-text-field
+                  id="params"
+                  name="input-1"
+                  label="Enter the dApp input parameters"
+                  v-model="params"
+                ></v-text-field>
+              </v-flex>
+            </v-layout>
+            <v-layout>
               <v-btn block raised @click="iexec">
                 IExec !
               </v-btn>
@@ -82,7 +108,9 @@
         image: null,
         snackbar: false,
         message: "",
-        orderId: '152'
+        orderId: '152',
+        dapp: '0xec3CF9FF711268ef329658DD2D233483Bd0127e6',
+        params: '{"cmdline":"https://storage.canalblog.com/78/32/802934/60160490.jpg"}'
       }
     },
     computed: {
@@ -143,9 +171,9 @@
         const args = [
           this.orderId,
           orderRPC.workerpool,
-          '0xec3CF9FF711268ef329658DD2D233483Bd0127e6', // dappAddress,
+          this.dapp, // dappAddress,
           '0x0000000000000000000000000000000000000000', // dataset
-          '{"cmdline":"https://storage.canalblog.com/78/32/802934/60160490.jpg"}',
+          this.params,
           marketplaceAddress, // callback
           '0x0000000000000000000000000000000000000000', // beneficiary
         ]
