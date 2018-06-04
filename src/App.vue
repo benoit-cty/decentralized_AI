@@ -113,7 +113,7 @@
         message: "",
         orderId: '152',
         dapp: '0xec3CF9FF711268ef329658DD2D233483Bd0127e6',
-        params: '{"cmdline":"https://storage.canalblog.com/78/32/802934/60160490.jpg"}'
+        params: '{"cmdline":""}'
       }
     },
     computed: {
@@ -147,6 +147,9 @@
     watch: {
       async contracts (val) {
         console.log(val)
+      },
+      image_url (url) {
+        this.params = `'{"cmdline":"${this.image_url}"}'`
       }
     },
     methods: {
