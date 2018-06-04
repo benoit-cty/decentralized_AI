@@ -63,6 +63,14 @@ iexec order init --buy
 
 ### How to execute Dapp
 
+#### Easiest way
+
+The easiest way is to go to https://market.iex.ec/ and place a Buy order with :
+- An available sell order ID
+- Dapp Address: 0xc790D024Ec41a7649E7a0590e4AE05891fA61ef8
+- Work Params: {"cmdline":"https://storage.canalblog.com/78/32/802934/60160490.jpg"}
+ 
+#### Command line way
 
 . Clone the repository
 . Change the image url in iexec.json
