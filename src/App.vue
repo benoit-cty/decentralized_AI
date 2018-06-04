@@ -15,40 +15,47 @@
     </v-toolbar>
     <v-content>
       <v-container fluid>
-        <picture-input 
-          ref="pictureInput"
-          width="600" 
-          height="600" 
-          margin="16" 
-          accept="image/jpeg,image/png" 
-          size="10" 
-          button-class="btn"
-          :custom-strings="{
-            upload: '<h1>IExec!</h1>',
-            drag: 'Select an image'
-          }"
-          @change="onChange">
-        </picture-input>
-      </v-container>
-      <v-container fluid>
-        <v-layout row>
-          <v-flex xs4>
-            <v-subheader>Order ID</v-subheader>
-          </v-flex>
-          <v-flex xs8>
-            <v-text-field
-              id="orderId"
-              name="input-1"
-              label="Enter the order id"
-              v-model="orderId"
-            ></v-text-field>
-          </v-flex>
-        </v-layout>
         <v-layout>
-          <v-btn block raised @click="iexec">
-            IExec !
-          </v-btn>
-        </v-layout>
+          <v-flex xs6>
+            <v-layout>
+              <picture-input 
+                ref="pictureInput"
+                width="600" 
+                height="600" 
+                margin="16" 
+                accept="image/jpeg,image/png" 
+                size="10" 
+                button-class="btn"
+                :custom-strings="{
+                  upload: '<h1>IExec!</h1>',
+                  drag: 'Select an image'
+                }"
+                @change="onChange">
+              </picture-input>
+            </v-layout>
+            <v-layout row>
+              <v-flex xs4>
+                <v-subheader>Order ID</v-subheader>
+              </v-flex>
+              <v-flex xs8>
+                <v-text-field
+                  id="orderId"
+                  name="input-1"
+                  label="Enter the order id"
+                  v-model="orderId"
+                ></v-text-field>
+              </v-flex>
+            </v-layout>
+            <v-layout>
+              <v-btn block raised @click="iexec">
+                IExec !
+              </v-btn>
+            </v-layout>
+          </v-flex>
+          <v-flex xs6>
+            <Orders :contracts="contracts"/>
+          </v-flex>
+        </v-layout>   
       </v-container>
     </v-content>
      <v-snackbar
@@ -64,6 +71,8 @@
 
 <script>
   import PictureInput from 'vue-picture-input'
+  import Orders from './components/Orders'
+
   import createIExecContracts from 'iexec-contracts-js-client';
   import { chains, chainsMap } from './chains'
 
@@ -105,11 +114,8 @@
       }
     },
     watch: {
-      contracts (val) {
+      async contracts (val) {
         console.log(val)
-        this.contracts.waitForReceipt('0x9d7fbee7b024d777f8a32f9f5a912462a0c11b52bbd95e1cca2d0f6266bf463a').then((receipt) => {
-          console.log(receipt);
-        })
       }
     },
     methods: {
@@ -129,6 +135,8 @@
         const orderRPC = await this.contracts
           .getMarketplaceContract({ at: marketplaceAddress })
           .getMarketOrder(this.orderId);
+
+        console.log(orderRPC)
         
         if (!orderRPC) return
         
@@ -138,12 +146,18 @@
           '0xec3CF9FF711268ef329658DD2D233483Bd0127e6', // dappAddress,
           '0x0000000000000000000000000000000000000000', // dataset
           '{"cmdline":"https://storage.canalblog.com/78/32/802934/60160490.jpg"}',
-          '0x0000000000000000000000000000000000000000', // callback
+          marketplaceAddress, // callback
           '0x0000000000000000000000000000000000000000', // beneficiary
         ]
         const transactionHash = await this.contracts
           .getHubContract()
           .buyForWorkOrder(...args)
+
+        const event = await this.contracts.getHubContract().Deposit((error, result) => {
+          console.log('event')
+          console.error(error)
+          console.log(result)
+        });
 
         this.message = `Fill order submitted. Waiting for transaction ${transactionHash} to be processed`
         this.snackbar = true
@@ -155,7 +169,7 @@
       }
     },
     components: {
-      PictureInput
+      PictureInput, Orders
     }
   }
 </script>
