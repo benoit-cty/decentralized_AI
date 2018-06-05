@@ -1,9 +1,9 @@
 {
   "description": "Semantic segmentation with Keras+Tensorflow",
-  "license": "MIT",
+  "license": "GPL v2",
   "author": "Benoit Courty",
   "social": {
-    "website": "htt://courty.fr",
+    "website": "https://github.com/trancept/decentralized_AI",
     "github": "https://github.com/trancept/decentralized_AI"
   },
   "logo": "logo.png",

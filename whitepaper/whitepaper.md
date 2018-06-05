@@ -62,13 +62,21 @@ One of the current issue is that dapps are not necessarily user friendly and itâ
 ### competitive landscape
 ## BUSINESS USE CASE
 ## TECHNOLOGY OVERVIEW
-### Background: desktop grid computing
-### proof-of-contriBution
-### consensus protocols
-### the need for poco
-### the role of poco within the iexec platform
-### domain specific sidechain
-### iExec smart contracts: matchmaking
+### Background
+Computing on blochain is really limited to few instructions. And it will probably remain like that.
+But there is the need for heavy computation like AI, video encoding, 3D rendering to be done decentralized.
+
+### Our stack
+
+
+
+### proof-of-contribution
+Proof of Contibution (PoCo) is the way iExec ensure that a worker do not cheat when we pay him for a work.
+Worker make a deposit and if they cheat, they loose it.
+It's a core functionnality for iExec.
+It means that task must be probabilistic to be able to check agains cheat.
+
+
 ### iExec smart contracts: multi-criteria scheduling
 ## THE MARKETPLACE FOR CLOUD RESOURCES
 ### the cloud computing marketplace
