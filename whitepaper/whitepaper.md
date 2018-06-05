@@ -52,6 +52,11 @@ More and more poeple saw there data as valuable and meaningful.
 Blockchain is more challenging, most poeple sees it only like a crypto-currency and not like an other way to do computing.
 
 ### the dapps market
+DAPPs means Decentralized Applications. That’s a new kind of applications. These types of applications are not owned by anyone, can’t be shut down, and cannot have downtime. A DAPP should meet these criteria: Open Source, Decentralized, Incentive (digital assets for feeling itself). There’s DAPPS built on top of the two biggest blockchain platforms Bitcoin and Ethereal. There’s also some DAPPs built on their own blockchain.
+New DAPPs are built every day, as you can see on https://www.stateofthedapps.com, listing 1576 DAPPs on his explorer, or even on https://dappradar.com
+
+Everything can be decentralized. We believe that in the future, all kind of applications will be decentralized, even the bigger ones.
+One of the current issue is that dapps are not necessarily user friendly and it’s pretty hard to be mass market. Another issue, is scalability. Ethereum’s scalability issues were recently emphasized by the popular cat-collecting virtual game CryptoKitties (DAPP game). The viral game caused the network, that can only handle 10 transactions per second to become clogged, and transaction fees skyrocketed.
 ### the traditional cloud market
 ### the edge and fog computing market
 ### competitive landscape
