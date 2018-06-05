@@ -20,7 +20,7 @@
             <v-layout>
               <v-card width="100%">
                 <img v-if="image_url" @click="inputFile" :src="image_url" width="100%">
-                <img v-else src="http://via.placeholder.com/350x150" width="100%">
+                <img v-else src="http://via.placeholder.com/350x150" @click="inputFile" width="100%">
                 <v-progress-linear indeterminate v-if="uploading"></v-progress-linear>
                 <v-card-text>
                   <v-layout row>
