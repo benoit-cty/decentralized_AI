@@ -20,7 +20,12 @@
                 <v-card-text>
                     <v-list two-line subheader>
                         <v-subheader inset>Order Book</v-subheader>
-                        <v-list-tile v-for="item in orders" v-if="item.category === n" :key="item.id" avatar>
+                        <v-list-tile 
+                            v-for="item in orders" 
+                            v-if="item.category === n" 
+                            :key="item.id" 
+                            avatar 
+                            @click="$emit('input', item.id.toString())">
                             <v-list-tile-avatar>
                             <span>{{ item.id }}</span>
                             </v-list-tile-avatar>
@@ -29,8 +34,8 @@
                             <v-list-tile-sub-title>{{ item.workerpool }}</v-list-tile-sub-title>
                             </v-list-tile-content>
                             <v-list-tile-action>
-                            <v-btn icon ripple>
-                                <v-icon color="grey lighten-1">info</v-icon>
+                            <v-btn v-if="value === item.id.toString()" icon ripple>
+                                <v-icon color="green lighten-1">check</v-icon>
                             </v-btn>
                             </v-list-tile-action>
                         </v-list-tile>
@@ -60,6 +65,9 @@ export default {
     props: {
         contracts: {
             type: Object
+        },
+        value: {
+            type: String
         }
     },
     computed: {

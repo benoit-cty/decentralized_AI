@@ -18,60 +18,74 @@
         <v-layout>
           <v-flex xs6>
             <v-layout>
-              <picture-input 
-                ref="pictureInput"
-                width="600" 
-                height="600" 
-                margin="16" 
-                accept="image/jpeg,image/png" 
-                size="10" 
-                button-class="btn"
-                :custom-strings="{
-                  upload: '<h1>IExec!</h1>',
-                  drag: 'Select an image'
-                }"
+              <v-card width="100%">
+                <img v-if="image_url" @click="inputFile" :src="image_url" width="100%">
+                <img v-else src="http://via.placeholder.com/350x150" width="100%">
+                <v-progress-linear indeterminate v-if="uploading"></v-progress-linear>
+                <v-card-text>
+                  <v-layout row>
+                    <v-flex xs4>
+                      <v-subheader>Order ID</v-subheader>
+                    </v-flex>
+                    <v-flex xs8>
+                      <v-text-field
+                        id="orderId"
+                        name="input-1"
+                        label="Enter the order id"
+                        v-model="orderId"
+                      ></v-text-field>
+                    </v-flex>
+                  </v-layout>
+                  <v-layout>
+                    <v-flex xs4>
+                      <v-subheader>dApp</v-subheader>
+                    </v-flex>
+                    <v-flex xs8>
+                      <v-text-field
+                        id="dapp"
+                        name="input-1"
+                        label="Enter the dApp address"
+                        v-model="dapp"
+                      ></v-text-field>
+                    </v-flex>
+                  </v-layout>
+                   <v-layout>
+                    <v-flex xs4>
+                      <v-subheader>image url</v-subheader>
+                    </v-flex>
+                    <v-flex xs8>
+                      <v-text-field
+                        id="params"
+                        name="input-1"
+                        label="Enter the dApp input image url"
+                        v-model="image_url"
+                      ></v-text-field>
+                    </v-flex>
+                  </v-layout>
+                  <v-layout>
+                    <v-flex xs4>
+                      <v-subheader>params</v-subheader>
+                    </v-flex>
+                    <v-flex xs8>
+                      <v-text-field
+                        id="params"
+                        name="input-1"
+                        label="dApp input parameters"
+                        v-model="params"
+                        disabled
+                      ></v-text-field>
+                    </v-flex>
+                  </v-layout>
+                </v-card-text>
+              </v-card>
+              <input 
+                v-show="false" 
+                ref="file-input"
+                accept="image/*"
+                type="file"
                 @change="onChange">
-              </picture-input>
             </v-layout>
-            <v-layout row>
-              <v-flex xs4>
-                <v-subheader>Order ID</v-subheader>
-              </v-flex>
-              <v-flex xs8>
-                <v-text-field
-                  id="orderId"
-                  name="input-1"
-                  label="Enter the order id"
-                  v-model="orderId"
-                ></v-text-field>
-              </v-flex>
-            </v-layout>
-            <v-layout>
-              <v-flex xs4>
-                <v-subheader>dApp</v-subheader>
-              </v-flex>
-              <v-flex xs8>
-                <v-text-field
-                  id="dapp"
-                  name="input-1"
-                  label="Enter the dApp address"
-                  v-model="dapp"
-                ></v-text-field>
-              </v-flex>
-            </v-layout>
-            <v-layout>
-              <v-flex xs4>
-                <v-subheader>params</v-subheader>
-              </v-flex>
-              <v-flex xs8>
-                <v-text-field
-                  id="params"
-                  name="input-1"
-                  label="Enter the dApp input parameters"
-                  v-model="params"
-                ></v-text-field>
-              </v-flex>
-            </v-layout>
+           
             <v-layout>
               <v-btn block raised @click="iexec">
                 IExec !
@@ -79,7 +93,7 @@
             </v-layout>
           </v-flex>
           <v-flex xs6>
-            <Orders :contracts="contracts"/>
+            <Orders :contracts="contracts" v-model="orderId"/>
           </v-flex>
         </v-layout>   
       </v-container>
@@ -96,7 +110,6 @@
 </template>
 
 <script>
-  import PictureInput from 'vue-picture-input'
   import Orders from './components/Orders'
 
   import createIExecContracts from 'iexec-contracts-js-client';
@@ -107,13 +120,12 @@
   export default {
     data () {
       return {
-        image: null,
         image_url: null,
         snackbar: false,
+        uploading: false,  
         message: "",
         orderId: '152',
         dapp: '0xec3CF9FF711268ef329658DD2D233483Bd0127e6',
-        params: '{"cmdline":""}'
       }
     },
     computed: {
@@ -132,6 +144,9 @@
       },
       currChain () {
         return chainsMap[this.$chainId];
+      },
+      params () {
+        return `'{"cmdline":"${this.image_url}"}'`
       }
     },
     asyncComputed: {
@@ -147,9 +162,6 @@
     watch: {
       async contracts (val) {
         console.log(val)
-      },
-      image_url (url) {
-        this.params = `'{"cmdline":"${this.image_url}"}'`
       }
     },
     methods: {
@@ -157,25 +169,27 @@
         this.message = message
         this.snackbar = true
       },
-      onChange (image) {
-        console.log('New picture selected!')
-        if (image) {
-          console.log('Picture loaded.')
-          this.image = image
-          this.image_url = null
-          this.$ipfs.add([buffer.Buffer(image)], (err, res) => {
-              if (err) throw err
-              const hash = res[0].hash
-              console.log('hash', hash);
-              this.image_url = `/ipfs/${hash}`
-              this.notify(`Image successfully uploaded to IPFS [${this.image_url}]`)
-              this.$ipfs.cat(hash, (err, res) => {
+      onChange (e) {
+        const f = e.target.files[0]
+        if (f) {
+          const reader = new FileReader();
+          this.uploading = true
+          reader.onloadend = () => {
+            const buf = buffer.Buffer(reader.result)
+            this.$ipfs.files.add(buf, (err, res) => {
                 if (err) throw err
-                this.image = [].reduce.call(res, (p,c) => p+String.fromCharCode(c),'')
-              })
-          })
-        } else {
-          console.log('FileReader API not supported: use the <form>, Luke!')
+                const hash = res[0].hash
+                console.log('hash', hash);
+                this.uploading = false
+                this.image_url = `https://ipfs.io/ipfs/${hash}`
+                this.notify(`Image successfully uploaded to IPFS ${this.image_url}`)
+                // this.$ipfs.cat(hash, (err, res) => {
+                //   if (err) throw err
+                //   this.image = [].reduce.call(res, (p,c) => p+String.fromCharCode(c),'')
+                // })
+            })
+          }
+          reader.readAsArrayBuffer(f);
         }
       },
       async iexec () {
@@ -186,8 +200,6 @@
           .getMarketplaceContract({ at: marketplaceAddress })
           .getMarketOrder(this.orderId);
 
-        console.log(orderRPC)
-        
         if (!orderRPC) return
         
         const args = [
@@ -214,11 +226,17 @@
         console.log(transactionHash)
 
         const receipt = await this.contracts.waitForReceipt(transactionHash)
-        console.log(receipt)
-      }
+        
+        if (receipt.status === "0x0") {
+          this.notify('Error processing the transaction')
+        }
+      },
+      inputFile () {
+        this.$refs['file-input'].click();
+      },
     },
     components: {
-      PictureInput, Orders
+       Orders
     }
   }
 </script>
