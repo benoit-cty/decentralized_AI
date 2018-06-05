@@ -1,8 +1,9 @@
 var path = require('path')
 var webpack = require('webpack')
+const UglifyJs = require('uglifyjs-webpack-plugin')
 
 module.exports = {
-  entry: ['babel-polyfill', './src/main.js'],
+  entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
@@ -67,12 +68,7 @@ if (process.env.NODE_ENV === 'production') {
         NODE_ENV: '"production"'
       }
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-      compress: {
-        warnings: false
-      }
-    }),
+    new UglifyJs(),
     new webpack.LoaderOptionsPlugin({
       minimize: true
     })
