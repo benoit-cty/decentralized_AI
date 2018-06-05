@@ -24,16 +24,30 @@ Our contribution with this project is to address these points, beginning by the 
 Allowing anyone to compute Deep Learning algorithms with less knowledge as possible.
 
 ## BACKGROUND
+
+Our project is build around iExec and IPFS.
+IPFS means Iner-Planetary FileSystem. It's a way to share files in a peer-to-peer way.
+It work perfectly well but lack of a way to incentives poeple to keep files online. FileCoin aim at doing this soon.
+iExec goal is to allow off-chain computation in a decentralized way. Anybody could share his computer power and get RLC token in return. In the future, datasets could also be sold on the network.
+iExec just release is testnet last week so it is more challenging to use it. For example there is only company worker to execute task so when they are stopped we have no way to work on our project.
+
 ## CURRENT LIMITATIONS
 ### Blockchain computing challenges
 ### traditional computing infrastructure challenges
-## THE IEXEC SOLUTION
+## OUR SOLUTION
 ### technical overview
 ### core value proposition
 ### key technological advancements
 ## MARKET OPPORTUNITY  
 ### the perfect timing for go-to-market
+
+Privacy is no more a cypherpunk concept, it is a mainstream subject with GDPR and Facebook numerous leaks.
+More and more poeple saw there data as valuable and meaningful.
+
 ### the Blockchain market
+
+Blockchain is more challenging, most poeple sees it only like a crypto-currency and not like an other way to do computing.
+
 ### the dapps market
 ### the traditional cloud market
 ### the edge and fog computing market
@@ -41,7 +55,6 @@ Allowing anyone to compute Deep Learning algorithms with less knowledge as possi
 ## BUSINESS USE CASE
 ## TECHNOLOGY OVERVIEW
 ### Background: desktop grid computing
-### the iExec sidechain infrastructure
 ### proof-of-contriBution
 ### consensus protocols
 ### the need for poco
