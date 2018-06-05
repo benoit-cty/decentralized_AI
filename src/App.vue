@@ -146,7 +146,7 @@
         return chainsMap[this.$chainId];
       },
       params () {
-        return `'{"cmdline":"${this.image_url}"}'`
+        return `{"cmdline":"${this.image_url}"}`
       }
     },
     asyncComputed: {
@@ -208,7 +208,7 @@
           this.dapp, // dappAddress,
           '0x0000000000000000000000000000000000000000', // dataset
           this.params,
-          marketplaceAddress, // callback
+          '0x0000000000000000000000000000000000000000', // callback
           '0x0000000000000000000000000000000000000000', // beneficiary
         ]
         const transactionHash = await this.contracts
