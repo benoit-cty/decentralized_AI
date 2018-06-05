@@ -32,6 +32,9 @@ iExec goal is to allow off-chain computation in a decentralized way. Anybody cou
 iExec just release is testnet last week so it is more challenging to use it. For example there is only company worker to execute task so when they are stopped we have no way to work on our project.
 
 ## CURRENT LIMITATIONS
+
+Wanting a decentralized
+
 ### Blockchain computing challenges
 ### traditional computing infrastructure challenges
 ## OUR SOLUTION
