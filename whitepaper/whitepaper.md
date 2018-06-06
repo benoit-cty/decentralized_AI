@@ -57,17 +57,42 @@ New DAPPs are built every day, as you can see on https://www.stateofthedapps.com
 
 Everything can be decentralized. We believe that in the future, all kind of applications will be decentralized, even the bigger ones.
 One of the current issue is that dapps are not necessarily user friendly and it’s pretty hard to be mass market. Another issue, is scalability. Ethereum’s scalability issues were recently emphasized by the popular cat-collecting virtual game CryptoKitties (DAPP game). The viral game caused the network, that can only handle 10 transactions per second to become clogged, and transaction fees skyrocketed.
+
 ### the traditional cloud market
 ### the edge and fog computing market
 ### competitive landscape
 ## BUSINESS USE CASE
 ## TECHNOLOGY OVERVIEW
 ### Background
-Computing on blochain is really limited to few instructions. And it will probably remain like that.
+Computing on blockchain is really limited to few instructions. And it will probably remain like that.
 But there is the need for heavy computation like AI, video encoding, 3D rendering to be done decentralized.
+This is what we will demonstrate with our project.
 
 ### Our stack
 
+We have two main part : the front, who is the user interface and the back, which do the computation.
+
+XXX Insert schema here XXX
+
+#### The Back
+We build a Docker image with Keras, Tensorflow, Python 3 and matplotlib in headless mode to render the result to a file.
+We add the RCNN (regional convolutional neural network) weight file trained on [COCO dataset](http://cocodataset.org/).
+We made a Python script based on the demo Jupyter Notebook from Matterport for [Mask RCNN](https://github.com/matterport/Mask_RCNN).
+We add the Docker image to [DockerHub](https://hub.docker.com/).
+We made an iExec DApp (decentralized application) using the just released [iExec SDK V2](https://github.com/iExecBlockchainComputing/iexec-sdk).
+We deploy it to the [iExec marketplace](https://market.iex.ec/).
+So we now have a DApp ready to be called by any Ethereum smart contract.
+The contract call the DApp with the image URL to process. When the processing is finish a callback function is called so the contrat could continue his process.
+The computation of the image is done off-chain and act as an [Oracle](https://medium.com/bethereum/how-oracles-connect-smart-contracts-to-the-real-world-a56d3ed6a507).
+
+
+### The front
+
+XXX Insert screen capture XXX
+
+We use NodeJS, Vue.JS, [Vuetify](https://vuetifyjs.com/en/), ETHjs, the iExec front SDK, and IPFS-api.
+We use IPFS to allow user to upload an image to IPFS. But it is not mandatory, a user could also copy-paste an url from Internet.
+Then the user pays the processing in RLC currency and the Gas in ETH with Metamask.
 
 
 ### proof-of-contribution
