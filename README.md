@@ -22,7 +22,7 @@ The result is that you can call it quite like an API to get your resulting image
 
 ```
 docker build docker_keras_cpu/ -t trancept/keras_mrcnn:v0
-docker run -v $(pwd):/iexec trancept/keras_mrcnn:v0 http://fr.ubergizmo.com/wp-content/uploads/2017/11/nouvel-algorithme-correction-panoramas-google-street-view.jpg
+docker run -v $(pwd):/iexec trancept/keras_mrcnn:v0  http://fr.ubergizmo.com/wp-content/uploads/2017/11/nouvel-algorithme-correction-panoramas-google-street-view.jpg
 docker push trancept/keras_mrcnn:v0
 ```
 
@@ -86,7 +86,5 @@ iexec order show 170
 # Buy the ressource
 iexec order fill 170
 # Check the status
-iexec work show 0x17fccaa99a9e16898984de30d4e9a3906493f384 --watch
-# Download the result
-iexec work show 0x36c7cd6ce2122be2aa1e551bfc5a5e601d6896a5 --download
+iexec work show 0xfda65e0d09bf434ea1e52f4ec044a07d6e7d592d --watch --download
 ```

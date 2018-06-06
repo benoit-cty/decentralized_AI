@@ -90,7 +90,7 @@ The computation of the image is done off-chain and act as an [Oracle](https://me
 
 XXX Insert screen capture XXX
 
-We use NodeJS, Vue.JS, [Vuetify](https://vuetifyjs.com/en/), ETHjs, the iExec front SDK, and IPFS-api.
+We use NodeJS, Vue.JS, [Vuetify](https://vuetifyjs.com/en/), ETHjs, the [iExec front SDK](https://github.com/iExecBlockchainComputing/iexec-server-js-client), and IPFS-api.
 We use IPFS to allow user to upload an image to IPFS. But it is not mandatory, a user could also copy-paste an url from Internet.
 Then the user pays the processing in RLC currency and the Gas in ETH with Metamask.
 
