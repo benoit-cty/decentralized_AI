@@ -15,32 +15,47 @@
             <v-tab-item
                 v-for="n in 5"
                 :key="n"
-            >
-                <v-card style="max-height: 750px" class="scroll-y">
-                <v-card-text>
-                    <v-list two-line subheader>
-                        <v-subheader inset>Order Book</v-subheader>
-                        <v-list-tile 
-                            v-for="item in orders" 
-                            v-if="item.category === n" 
-                            :key="item.id" 
-                            avatar 
-                            @click="$emit('input', item.id.toString())">
-                            <v-list-tile-avatar>
-                            <span>{{ item.id }}</span>
-                            </v-list-tile-avatar>
-                            <v-list-tile-content>
-                            <v-list-tile-title>remaining : {{ item.remaining }} / {{ item.volume }}</v-list-tile-title>
-                            <v-list-tile-sub-title>{{ item.workerpool }}</v-list-tile-sub-title>
-                            </v-list-tile-content>
-                            <v-list-tile-action>
-                            <v-btn v-if="value === item.id.toString()" icon ripple>
-                                <v-icon color="green lighten-1">check</v-icon>
-                            </v-btn>
-                            </v-list-tile-action>
-                        </v-list-tile>
-                    </v-list>
-                </v-card-text>
+            >  
+                <v-card>
+                    <v-card-title>
+                    Category {{ n }} Work Orders
+                    <v-spacer></v-spacer>
+                    <v-text-field
+                        v-model="search"
+                        append-icon="search"
+                        label="Search"
+                        single-line
+                        hide-details
+                    ></v-text-field>
+                    </v-card-title>
+                    <v-data-table
+                        :headers="headers"
+                        :items="ordersByCategory(n)"
+                        :loading="loading"
+                        :search="search"
+                        class="elevation-1"
+                        :rows-per-page-items='[10, 25, 100,{"text":"All","value":-1}]'
+                    >
+                        <v-progress-linear slot="progress" color="blue" indeterminate></v-progress-linear>
+                        <template slot="items" slot-scope="props" @click.stop="$emit('input', props.item.id.toString())">
+                            <tr @click="$emit('input', props.item.id.toString())">
+                                <td>{{ props.item.id }}</td>
+                                <td class="text-xs-right">{{ props.item.value }}</td>
+                                <td class="text-xs-right">{{ props.item.remaining }}</td>
+                                <td class="text-xs-right">{{ props.item.volume }}</td>
+                                <td class="text-xs-right">{{ props.item.workerpool }}</td>
+                                <td class="text-xs-right">{{ props.item.trust }}</td>
+                            </tr>
+                        </template>
+                        <v-alert slot="no-results" :value="true" color="error" icon="warning">
+                            Your search for "{{ search }}" found no results.
+                        </v-alert>
+                        <template slot="no-data">
+                            <v-alert :value="true" color="error" icon="warning">
+                                Sorry, no work order to display here :(
+                            </v-alert>
+                        </template>
+                    </v-data-table>
                 </v-card>
             </v-tab-item>
         </v-tabs>
@@ -51,7 +66,18 @@
 export default {
     data () {
         return {
-            orders: []
+            loading: true,
+            selected: [],
+            search: '',
+            orders: [],
+            headers: [
+            { text: 'ID', value: 'id' },
+            { text: 'Price (RLC)', value: 'value' },
+            { text: 'Remaining', value: 'remaining' },
+            { text: 'Volume', value: 'volume' },
+            { text: 'Workerpool', value: 'workerpool' },
+            { text: 'Trust', value: 'trust' }
+            ],
         }
     },
     mounted () {
@@ -73,11 +99,15 @@ export default {
     computed: {
         sortedOrders () {
             return this.orders.sort((a, b) => a.remaining > b.remaining)
+        },
+        ordersByCategory () {
+            return (n) => this.orders.filter((order) => order.category === n)
         }
     },
     methods: {
         async updateOrders () {
             if (!this.contracts) return
+            this.loading = true
             this.orders = []
             const marketplaceAddress = await this.contracts.fetchMarketplaceAddress();
             for (let i = 100; i < 200; i++) {
@@ -88,6 +118,7 @@ export default {
                     this.orders.push({
                         category: order.category.toNumber(),
                         remaining: order.remaining.toNumber(),
+                        value: order.value.toNumber(),
                         volume: order.volume.toNumber(),
                         workerpool: order.workerpool,
                         trust: order.trust.toString(),
@@ -96,6 +127,7 @@ export default {
                     })
                 }
             }
+            this.loading = false
         }
     }
 }

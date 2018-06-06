@@ -16,7 +16,7 @@
     <v-content>
       <v-container fluid>
         <v-layout>
-          <v-flex xs6>
+          <v-flex xs4>
             <v-layout>
               <v-card width="100%">
                 <img v-if="image_url" @click="inputFile" :src="image_url" width="100%">
@@ -92,7 +92,7 @@
               </v-btn>
             </v-layout>
           </v-flex>
-          <v-flex xs6>
+          <v-flex xs8>
             <Orders :contracts="contracts" v-model="orderId"/>
           </v-flex>
         </v-layout>   
