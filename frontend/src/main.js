@@ -17,8 +17,10 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 const debug = console.log;
 
 const iexec = createIEXECClient({ server: 'https://testxw.iex.ec:443' });
-const ipfs = IpfsApi('localhost', '5001');
-// const ipfs = IpfsApi({ host: 'ipfs.infura.io', port: 5001, protocol: 'https' });
+
+const ipfs = IpfsApi('nrxubuntu.eastus2.cloudapp.azure.com', '7001')
+// const ipfs = IpfsApi('localhost', '5001')
+// const ipfs = IpfsApi({ host: 'ipfs.infura.io', port: 5001, protocol: 'https' })
 
 let Global = new Vue({
   data: {
