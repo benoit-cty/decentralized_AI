@@ -87,7 +87,7 @@
             </v-layout>
            
             <v-layout>
-              <v-btn block raised @click="iexec">
+              <v-btn :disabled="!image_url" block raised @click="iexec">
                 IExec !
               </v-btn>
             </v-layout>
