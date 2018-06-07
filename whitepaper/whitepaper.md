@@ -49,7 +49,8 @@ More and more poeple saw there data as valuable and meaningful.
 
 ### the Blockchain market
 
-Blockchain is more challenging, most poeple sees it only like a crypto-currency and not like an other way to do computing.
+The report "Blockchain Market by Provider, Application (Payments, Exchanges, Smart Contracts, Documentation, Digital Identity, Supply Chain Management, and GRC Management), Organization Size, Industry Vertical, and Region - Global Forecast to 2022", The blockchain market size is expected to grow from USD 411.5 Million in 2017 to USD 7,683.7 Million by 2022, at a Compound Annual Growth Rate (CAGR) of 79.6%. The key factors including reduced total cost of ownership, faster transactions, simplified business process with transparency and immutability, and rising cryptocurrencies market cap and ICO are expected to drive the overall growth of the market.
+Blockchain is more challenging, most poeple sees it only like a crypto-currency and not like an other way to do computing while there’s a tons of other use cases: identity, notary, digital assets, smart contracts, digital voting, distributed storage, AI computing, etc.
 
 ### the dapps market
 DAPPs means Decentralized Applications. That’s a new kind of applications. These types of applications are not owned by anyone, can’t be shut down, and cannot have downtime. A DAPP should meet these criteria: Open Source, Decentralized, Incentive (digital assets for feeling itself). There’s DAPPS built on top of the two biggest blockchain platforms Bitcoin and Ethereal. There’s also some DAPPs built on their own blockchain.
