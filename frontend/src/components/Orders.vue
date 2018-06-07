@@ -15,7 +15,7 @@
             <v-tab-item
                 v-for="n in 5"
                 :key="n"
-            >  
+            >
                 <v-card>
                     <v-card-title>
                     Category {{ n }} Work Orders
@@ -38,7 +38,7 @@
                     >
                         <v-progress-linear slot="progress" color="blue" indeterminate></v-progress-linear>
                         <template slot="items" slot-scope="props" @click.stop="$emit('input', props.item.id.toString())">
-                            <tr @click="$emit('input', props.item.id.toString())">
+                            <tr @click="$emit('input', props.item.id.toString())" v-bind:style="[props.item.remaining > 0 ? { 'background-color': 'mediumseagreen' } : { 'background-color': 'silver' }]">
                                 <td>{{ props.item.id }}</td>
                                 <td class="text-xs-right">{{ props.item.value }}</td>
                                 <td class="text-xs-right">{{ props.item.remaining }}</td>

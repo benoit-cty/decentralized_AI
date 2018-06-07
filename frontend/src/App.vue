@@ -20,7 +20,7 @@
             <v-layout>
               <v-card width="100%">
                 <img v-if="image_url" @click="inputFile" :src="image_url" width="100%">
-                <img v-else src="http://via.placeholder.com/350x150" @click="inputFile" width="100%">
+                <img v-else src="https://cdn-images-1.medium.com/max/1600/0*I0nyARrHiSl-a3lZ." @click="inputFile" width="100%">
                 <v-progress-linear indeterminate v-if="uploading"></v-progress-linear>
                 <v-card-text>
                   <v-layout row>
@@ -78,14 +78,14 @@
                   </v-layout>
                 </v-card-text>
               </v-card>
-              <input 
-                v-show="false" 
+              <input
+                v-show="false"
                 ref="file-input"
                 accept="image/*"
                 type="file"
                 @change="onChange">
             </v-layout>
-           
+
             <v-layout>
               <v-btn :disabled="!image_url" block raised @click="iexec">
                 IExec !
@@ -95,7 +95,7 @@
           <v-flex xs8>
             <Orders :contracts="contracts" v-model="orderId"/>
           </v-flex>
-        </v-layout>   
+        </v-layout>
       </v-container>
     </v-content>
      <v-snackbar
@@ -114,15 +114,15 @@
 
   import createIExecContracts from 'iexec-contracts-js-client';
   import { chains, chainsMap } from './chains'
-  
+
   import buffer from 'buffer'
 
   export default {
     data () {
       return {
-        image_url: null,
+        image_url: 'https://cdn-images-1.medium.com/max/1600/0*I0nyARrHiSl-a3lZ.',
         snackbar: false,
-        uploading: false,  
+        uploading: false,
         message: "",
         orderId: '152',
         dapp: '0xec3CF9FF711268ef329658DD2D233483Bd0127e6',
@@ -194,14 +194,14 @@
       },
       async iexec () {
         if (!this.contracts) return
-        
+
         const marketplaceAddress = await this.contracts.fetchMarketplaceAddress();
         const orderRPC = await this.contracts
           .getMarketplaceContract({ at: marketplaceAddress })
           .getMarketOrder(this.orderId);
 
         if (!orderRPC) return
-        
+
         const args = [
           this.orderId,
           orderRPC.workerpool,
@@ -222,11 +222,11 @@
         });
 
         this.notify(`Fill order submitted. Waiting for transaction ${transactionHash} to be processed`)
-        
+
         console.log(transactionHash)
 
         const receipt = await this.contracts.waitForReceipt(transactionHash)
-        
+
         if (receipt.status === "0x0") {
           this.notify('Error processing the transaction')
         }
