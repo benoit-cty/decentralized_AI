@@ -16,7 +16,20 @@ The V2 is just out (speaking from 1st of June 2018).
 
 The result is that you can call it quite like an API to get your resulting image :
 
+# How to run it
 
+```
+cd frontend
+npm install
+npm run dev
+```
+Your browser will automatically go to localhost:8081 so you can access the frontend.
+. Connect to Metamask and switch to Kovan Ethereum test network. Ask for free ETH on [Kovan faucet](https://gitter.im/kovan-testnet) and for free RLC on [iExec marketplace](https://market.iex.ec/), then transfert RLC from your wallet to your "account" (on top left of [iExec marketplace](https://market.iex.ec/))
+. Choose an image from your harddisk or copy-past an url.
+. Choose a worker in the list on the right.
+. Click on "iExec" button.
+
+# How we make it
 
 ## Building the Docker Image
 
@@ -34,7 +47,7 @@ docker push trancept/keras_mrcnn:v0
 
 # Get money
 iexec wallet getRLC
-=> For ETH, on Kovan you have to go to ask for it on https://gitter.im/kovan-testnet
+=> For ETH, on Kovan you have to go to ask for it on [Kovan faucet](https://gitter.im/kovan-testnet)
 # Check your wallet
 iexec wallet show
 => You need to have ETH and RLC
