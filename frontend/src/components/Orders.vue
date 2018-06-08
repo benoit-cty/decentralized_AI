@@ -111,21 +111,23 @@ export default {
             this.orders = []
             const marketplaceAddress = await this.contracts.fetchMarketplaceAddress();
             for (let i = 100; i < 200; i++) {
-                const order = await this.contracts
+                this.contracts
                     .getMarketplaceContract({ at: marketplaceAddress })
                     .getMarketOrder(i.toString())
-                if (order) {
-                    this.orders.push({
-                        category: order.category.toNumber(),
-                        remaining: order.remaining.toNumber(),
-                        value: order.value.toNumber(),
-                        volume: order.volume.toNumber(),
-                        workerpool: order.workerpool,
-                        trust: order.trust.toString(),
-                        direction: order.direction.toString(),
-                        id: i
+                    .then((order) => {
+                        if (order) {
+                            this.orders.push({
+                                category: order.category.toNumber(),
+                                remaining: order.remaining.toNumber(),
+                                value: order.value.toNumber(),
+                                volume: order.volume.toNumber(),
+                                workerpool: order.workerpool,
+                                trust: order.trust.toString(),
+                                direction: order.direction.toString(),
+                                id: i
+                            })
+                        }
                     })
-                }
             }
             this.loading = false
         }
