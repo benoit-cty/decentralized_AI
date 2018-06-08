@@ -5,8 +5,8 @@
 WARNING : this a student project and has to be taken as his, without any warranty of any kind. Use at you own risk.
 
 This is our final project for [TheSchool.AI](https://www.theschool.ai), a decentralized application course by Siraj Raval.
-This Whitepaper is ispired by the one from iExec
-We talk a lot of iExec because it is the core technology we use for our project.
+
+This Whitepaper is inspired by the one from iExec. We talk a lot of iExec because it is the core technology we use for our project.
 But we have no link or affiliation of any kind with iExec.
 
 ## BLUEPRINT FOR DECENTRALIZED ARTIFICIAL INTELLIGENCE
@@ -31,40 +31,42 @@ It work perfectly well but lack of a way to incentives poeple to keep files onli
 iExec goal is to allow off-chain computation in a decentralized way. Anybody could share his computer power and get RLC token in return. In the future, datasets could also be sold on the network.
 iExec just release is testnet last week so it is more challenging to use it. For example there is only company worker to execute task so when they are stopped we have no way to work on our project.
 
-## CURRENT LIMITATIONS
-
-Wanting a decentralized
-
-### Blockchain computing challenges
-### traditional computing infrastructure challenges
-## OUR SOLUTION
-### technical overview
-### core value proposition
-### key technological advancements
 ## MARKET OPPORTUNITY  
-### the perfect timing for go-to-market
+
+Decentralisation is essential if we wan't to get our privacy and liberty back.
+OpenSource was a first step. Blockchain like Ethereum took it to the next level by allowing to incentive peoples.
+But current blockchain, or best call it distributed ledger technology (DLT), coulnd't handle heavy computing task.
+We are at the beginning of a new erae with project like [Open Mined](XXX) and iExec for example.
+These project aim at computing challenging task. With a great addition to privacy for Open Mined.
+
+### The perfect timing for go-to-market
 
 Privacy is no more a cypherpunk concept, it is a mainstream subject with GDPR and Facebook numerous leaks.
-More and more poeple saw there data as valuable and meaningful.
+More and more poeple saw their data as valuable assets and meaningful.
 
-### the Blockchain market
+### The Blockchain market
 
 The report "Blockchain Market by Provider, Application (Payments, Exchanges, Smart Contracts, Documentation, Digital Identity, Supply Chain Management, and GRC Management), Organization Size, Industry Vertical, and Region - Global Forecast to 2022", The blockchain market size is expected to grow from USD 411.5 Million in 2017 to USD 7,683.7 Million by 2022, at a Compound Annual Growth Rate (CAGR) of 79.6%. The key factors including reduced total cost of ownership, faster transactions, simplified business process with transparency and immutability, and rising cryptocurrencies market cap and ICO are expected to drive the overall growth of the market.
 Blockchain is more challenging, most poeple sees it only like a crypto-currency and not like an other way to do computing while there’s a tons of other use cases: identity, notary, digital assets, smart contracts, digital voting, distributed storage, AI computing, etc.
 
-### the dapps market
+### The dapps market
 DAPPs means Decentralized Applications. That’s a new kind of applications. These types of applications are not owned by anyone, can’t be shut down, and cannot have downtime. A DAPP should meet these criteria: Open Source, Decentralized, Incentive (digital assets for feeling itself). There’s DAPPS built on top of the two biggest blockchain platforms Bitcoin and Ethereal. There’s also some DAPPs built on their own blockchain.
 New DAPPs are built every day, as you can see on https://www.stateofthedapps.com, listing 1576 DAPPs on his explorer, or even on https://dappradar.com
 
 Everything can be decentralized. We believe that in the future, all kind of applications will be decentralized, even the bigger ones.
 One of the current issue is that dapps are not necessarily user friendly and it’s pretty hard to be mass market. Another issue, is scalability. Ethereum’s scalability issues were recently emphasized by the popular cat-collecting virtual game CryptoKitties (DAPP game). The viral game caused the network, that can only handle 10 transactions per second to become clogged, and transaction fees skyrocketed.
 
-### the traditional cloud market
-### the edge and fog computing market
-### competitive landscape
-## BUSINESS USE CASE
+### The traditional cloud market
+
+It's a huge market. Many company transfert their infrastructures to the cloud. XXX Market value ?
+
+### The edge and fog computing market
+
+A new approach began to emmerrge with "Fog Computing". XXX Explain ?
+
 ## TECHNOLOGY OVERVIEW
 ### Background
+
 Computing on blockchain is really limited to few instructions. And it will probably remain like that.
 But there is the need for heavy computation like AI, video encoding, 3D rendering to be done decentralized.
 This is what we will demonstrate with our project.
@@ -77,13 +79,21 @@ XXX Insert schema here XXX
 
 #### The Back
 We build a Docker image with Keras, Tensorflow, Python 3 and matplotlib in headless mode to render the result to a file.
+
 We add the RCNN (regional convolutional neural network) weight file trained on [COCO dataset](http://cocodataset.org/).
+
 We made a Python script based on the demo Jupyter Notebook from Matterport for [Mask RCNN](https://github.com/matterport/Mask_RCNN).
+
 We add the Docker image to [DockerHub](https://hub.docker.com/).
+
 We made an iExec DApp (decentralized application) using the just released [iExec SDK V2](https://github.com/iExecBlockchainComputing/iexec-sdk).
+
 We deploy it to the [iExec marketplace](https://market.iex.ec/).
+
 So we now have a DApp ready to be called by any Ethereum smart contract.
-The contract call the DApp with the image URL to process. When the processing is finish a callback function is called so the contrat could continue his process.
+
+The contract call the DApp with the image URL to process. When the processing is finish a callback function is called so the contrat could
+continue his process.
 The computation of the image is done off-chain and act as an [Oracle](https://medium.com/bethereum/how-oracles-connect-smart-contracts-to-the-real-world-a56d3ed6a507).
 
 
@@ -96,22 +106,26 @@ We use IPFS to allow user to upload an image to IPFS. But it is not mandatory, a
 Then the user pays the processing in RLC currency and the Gas in ETH with Metamask.
 
 
-### proof-of-contribution
+### Note on Proof-of-contribution
 Proof of Contibution (PoCo) is the way iExec ensure that a worker do not cheat when we pay him for a work.
+
 Worker make a deposit and if they cheat, they loose it.
+
 It's a core functionnality for iExec.
 It means that task must be probabilistic to be able to check agains cheat.
 
-
-### iExec smart contracts: multi-criteria scheduling
 ## THE MARKETPLACE FOR CLOUD RESOURCES
-### the cloud computing marketplace
-### cloud computing as a commodity
-### workers pools
-### the iexec marketplace
-### pay-per-task (ppt)
-### the dapp store
-### the data marketplace
+
+iExec offer a cloud computing marketplace to allow cloud computing as a commodity. It means that you can easily by computing ressources.
+A computing ressource is called a "worker". Workers are grouped together in a "workerpool". This worker pool could be a former cloud provider who want to get money for his unsued computing power. Or individuals who want to get a little bit of money from their home computer.
+
+The iexec marketplace is the place where workers sell their power to buyers. Like an open marketplace or an exchange.
+It's a pay-per-task (ppt) system. A bit like cloud API provider.
+
+The DApp store is where you can find packaged application to run on iExec network. For  or project that's where we put our semantic segmentation DApp.
+
+The data marketplace is where you could sell or buy data. But it's not available yet.
+
 ## ROADMAP
 Our goal will be achieve when global warming was ended.
 ## FINANCIALS
@@ -123,4 +137,8 @@ We took a small fee on every transaction made using our Dapp to allow the team t
 ## MEET THE TEAM
 Name and pictures of team members with little bio.
 ## REFERENCES
-Link to project we use
+Link to papers and project we use
+Vuetify
+Mask RCNN
+iExec
+Open Mined
