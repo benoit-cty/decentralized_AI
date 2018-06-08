@@ -62,10 +62,10 @@ new Vue({
   el: '#app',
   watch: {
     $account(account) {
-      // this.$iexec.auth(web3.currentProvider, account).then(({ jwtoken, cookie }) => {
-      //   console.log(jwtoken); // this is given by auth.iex.ec server
-      //   console.log(cookie); // this is given by iExec server
-      // });
+      this.$iexec.auth(web3.currentProvider, account).then(({ jwtoken, cookie }) => {
+        console.log(jwtoken); // this is given by auth.iex.ec server
+        console.log(cookie); // this is given by iExec server
+      });
     }
   },
   async mounted () {

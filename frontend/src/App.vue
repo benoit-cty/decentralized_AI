@@ -116,6 +116,7 @@
   import { chains, chainsMap } from './chains'
 
   import buffer from 'buffer'
+  const oracleJSON = require('iexec-oracle-contract/build/contracts/IexecOracle.json');
 
   export default {
     data () {
@@ -192,6 +193,10 @@
           reader.readAsArrayBuffer(f);
         }
       },
+      async iexec2 () {
+        const workUID = await this.$iexec.submitWorkByAppName('Keras', { cmdline: this.image_url });
+        console.log(workUID)
+      },
       async iexec () {
         if (!this.contracts) return
 
@@ -230,6 +235,16 @@
         if (receipt.status === "0x0") {
           this.notify('Error processing the transaction')
         }
+        
+
+        this.$iexec.getWorkByExternalID(transactionHash).then(console.log); // print work description from submit txHash
+        const oracleContract = web3.eth.contract(oracleJSON.abi).at(oracleJSON.networks[this.$chainId].address);
+        this.$iexec
+          .waitForWorkResult(oracleContract.getWork, transactionHash)
+          .then(workResultURI => this.$iexec.createDownloadURI(workResultURI))
+          .then(console.log)
+          .catch(console.log.bind(console));  // let user open this URL in the browser to download the work result
+          
       },
       inputFile () {
         this.$refs['file-input'].click();

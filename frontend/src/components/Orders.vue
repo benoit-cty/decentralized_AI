@@ -110,7 +110,7 @@ export default {
             this.loading = true
             this.orders = []
             const marketplaceAddress = await this.contracts.fetchMarketplaceAddress();
-            for (let i = 100; i < 200; i++) {
+            for (let i = 100; i < 1000; i++) {
                 this.contracts
                     .getMarketplaceContract({ at: marketplaceAddress })
                     .getMarketOrder(i.toString())
