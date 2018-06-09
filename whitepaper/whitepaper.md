@@ -24,7 +24,7 @@ So there is three challenges :
 Our contribution with this project is to address these points, beginning by the last.
 Allowing anyone to compute Deep Learning algorithms with less knowledge as possible.
 
-![front_screenshot](https://github.com/trancept/decentralized_AI/img/screenshot.png)
+![iexec_blueprint](https://github.com/trancept/decentralized_AI/blob/master/img/architecture_2.png)
 
 ## Technologies
 
@@ -79,72 +79,43 @@ This is what we will demonstrate with our project.
 
 We have two main part : the front, who is the user interface and the back, which do the computation.
 
-XXX Insert schema here XXX
+![project_blueprint](https://github.com/trancept/decentralized_AI/blob/master/img/architecture_1.png)
 
-#### The Back-end
-We build a Docker image with Keras, Tensorflow, Python 3 and matplotlib in headless mode to render the result to a file.
+### The Back-end
 
-We add the RCNN (regional convolutional neural network) weight file trained on [COCO dataset](http://cocodataset.org/).
-
-We made a Python script based on the demo Jupyter Notebook from Matterport for [Mask RCNN](https://github.com/matterport/Mask_RCNN).
-
-We add the Docker image to [DockerHub](https://hub.docker.com/).
-
-We made an iExec DApp (decentralized application) using the just released [iExec SDK V2](https://github.com/iExecBlockchainComputing/iexec-sdk).
-
-We deploy it to the [iExec marketplace](https://market.iex.ec/).
-
-So we now have a DApp ready to be called by any Ethereum smart contract.
-
-The contract call the DApp with the image URL to process. When the processing is finish a callback function is called so the contrat could
-continue his process.
-The computation of the image is done off-chain and act as an [Oracle](https://medium.com/bethereum/how-oracles-connect-smart-contracts-to-the-real-world-a56d3ed6a507).
-
+We build a Docker image with Keras, Tensorflow, Python 3 and matplotlib in headless mode to render the result to a file. We add the RCNN (regional convolutional neural network) weight file trained on [COCO dataset](http://cocodataset.org/). We made a Python script based on the demo Jupyter Notebook from Matterport for [Mask RCNN](https://github.com/matterport/Mask_RCNN). We add the Docker image to [DockerHub](https://hub.docker.com/). We made an iExec DApp (decentralized application) using the just released [iExec SDK V2](https://github.com/iExecBlockchainComputing/iexec-sdk). We deploy it to the [iExec marketplace](https://market.iex.ec/). So we now have a DApp ready to be called by any Ethereum smart contract. The contract call the DApp with the image URL to process. When the processing is finish a callback function is called so the contrat could continue his process. The computation of the image is done off-chain and act as an [Oracle](https://medium.com/bethereum/how-oracles-connect-smart-contracts-to-the-real-world-a56d3ed6a507).
 
 ### The Front-end
 
-![front_screenshot](https://github.com/trancept/decentralized_AI/img/screenshot.png)
+![front_screenshot](https://github.com/trancept/decentralized_AI/blob/master/img/front_preview.png)
 
-We use NodeJS, Vue.JS, [Vuetify](https://vuetifyjs.com/en/), ETHjs, the [iExec front SDK](https://github.com/iExecBlockchainComputing/iexec-server-js-client), and IPFS-api.
-We use IPFS to allow user to upload an image to IPFS. But it is not mandatory, a user could also copy-paste an url from Internet.
-Then the user pays the processing in RLC currency and the Gas in ETH with Metamask.
-
+We use NodeJS, Vue.JS, [Vuetify](https://vuetifyjs.com/en/), ETHjs, the [iExec front SDK](https://github.com/iExecBlockchainComputing/iexec-server-js-client), and IPFS-api. We use IPFS to allow user to upload an image to IPFS. But it is not mandatory, a user could also copy-paste an url from Internet. Then the user pays the processing in RLC currency and the Gas in ETH with Metamask.
 
 ### Note on Proof-of-contribution
-Proof of Contibution (PoCo) is the way iExec ensure that a worker do not cheat when we pay him for a work.
-
-Worker make a deposit and if they cheat, they loose it.
-
-It's a core functionnality for iExec.
-It means that task must be probabilistic to be able to check agains cheat.
+Proof of Contibution (PoCo) is the way iExec ensure that a worker do not cheat when we pay him for a work. A worker must make a deposit and if they cheat, they loose the deposit. This is a core functionnality for iExec. It means that task for the distributed computation must be probabilistic to be able to check against cheating.
 
 ## THE MARKETPLACE FOR CLOUD RESOURCES
 
-iExec offer a cloud computing marketplace to allow cloud computing as a commodity. It means that you can easily by computing ressources.
-A computing ressource is called a "worker". Workers are grouped together in a "workerpool". This worker pool could be a former cloud provider who want to get money for his unsued computing power. Or individuals who want to get a little bit of money from their home computer.
-
-The iexec marketplace is the place where workers sell their power to buyers. Like an open marketplace or an exchange.
-It's a pay-per-task (ppt) system. A bit like cloud API provider.
-
-The DApp store is where you can find packaged application to run on iExec network. For  or project that's where we put our semantic segmentation DApp.
-
-The data marketplace is where you could sell or buy data. But it's not available yet.
+iExec offerx a cloud computing marketplace to allow cloud computing as a commodity. It means that one can easily by computing ressources. A computing ressource is called a "worker". Workers are grouped together in a "workerpool". This worker pool could be a former cloud provider who want to get money for his unsued computing power. Or individuals who want to get a little bit of money from their home computer. The iExec marketplace is the place where workers sell their power to buyers. Like an open marketplace or an exchange. It's a pay-per-task (ppt) system. A bit like cloud API provider. The DApp store is where you can find packaged application to run on iExec network. For  or project that's where we put our semantic segmentation DApp. The data marketplace is where you could sell or buy data (available in a future release).
 
 ## ROADMAP
-Our goal will be achieve when global warming was ended.
+### Overview
 
-## FINANCIALS
-### costs
-We have no cost, we do it on our part time and kind peoples give us computing power on testnet.
-### token sale
-We do not plan to made an ICO because we believe in Humanity to contribute to help us in our goal.
-We took a small fee on every transaction made using our Dapp to allow the team to go to Las Vegas and get drunk once a week.
+_Phase 1_: Creation of MVP (June, 2018)
+_Phase 2_: Debugging on Testnets (Q2 2018 - Q4 2018)
+_Phase 3_: Release and further real-world testing (starting Q4 2018 - Q1 2019)
 
+### Financial Considerations & Budget
+
+This project is currently without cost and has no assigned budget. Development is fueled by volunteers who contribute part-time, and the kind donors of computing power on the testnet. As such, we also do not plan to launch an ICO. Aside from the risks of an ICO (such as needing to spend disproportionate amounts of capital on marketing instead of engineering), we have enough faith in humanity for it to contribute towards helping us achieve our collective development goals.
+
+(Note: We have imposed a very minor transaction fee on transactions made using our Dapp to finance teambuilding excursions once a week.)
 
 ## REFERENCES
+
 Below is a list of the papers and projects that have inspired this work:
 
-- Vuetify
-- Mask RCNN
-- iExec
-- OpenMined
+- [Vuetify](https://vuetifyjs.com/en/)
+- [Mask RCNN](https://arxiv.org/abs/1703.06870)
+- [iExec (whitepaper)](https://iex.ec/whitepaper/iExec-WPv3.0-English.pdf)
+- [OpenMined (site)](https://www.openmined.org/)
