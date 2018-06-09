@@ -3,20 +3,19 @@ import App from './App.vue'
 import Vuetify from 'vuetify'
 import EthJs from 'ethjs'
 import createIExecContracts from 'iexec-contracts-js-client'
-import createIEXECClient from 'iexec-server-js-client'
 import { chains, DEFAULT_CHAIN } from './chains'
 import AsyncComputed from 'vue-async-computed'
 import IpfsApi from 'ipfs-api'
+import VueResource from 'vue-resource'
 
 import 'vuetify/dist/vuetify.css'
 
 Vue.use(Vuetify)
 Vue.use(AsyncComputed)
+Vue.use(VueResource);
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 const debug = console.log;
-
-const iexec = createIEXECClient({ server: 'https://testxw.iex.ec:443' });
 
 const ipfs = IpfsApi('nrxubuntu.eastus2.cloudapp.azure.com', '7001')
 // const ipfs = IpfsApi('localhost', '5001')
@@ -25,7 +24,6 @@ const ipfs = IpfsApi('nrxubuntu.eastus2.cloudapp.azure.com', '7001')
 let Global = new Vue({
   data: {
     $ipfs: ipfs,
-    $iexec: iexec,
     $ethjs: null,
     $account: null,
     $chainId: DEFAULT_CHAIN
@@ -36,9 +34,6 @@ Vue.mixin({
   computed: {
     $ipfs: {
       get: () => Global.$data.$ipfs
-    },
-    $iexec: {
-      get: () => Global.$data.$iexec
     },
     $account: {
       get: () => { return Global.$data.$account },
@@ -60,14 +55,6 @@ const setChainID = (chainId) => Global.$data.$chainId = chainId
 
 new Vue({
   el: '#app',
-  watch: {
-    $account(account) {
-      this.$iexec.auth(web3.currentProvider, account).then(({ jwtoken, cookie }) => {
-        console.log(jwtoken); // this is given by auth.iex.ec server
-        console.log(cookie); // this is given by iExec server
-      });
-    }
-  },
   async mounted () {
     this.$ipfs.swarm.peers((err, res) => {
       if (err) {
