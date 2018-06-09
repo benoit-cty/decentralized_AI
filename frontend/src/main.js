@@ -18,7 +18,7 @@ Vue.use(VueResource);
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 const debug = console.log;
 
-const iexec = createIEXECClient({ server: 'https://testxw.iex.ec:443' });
+const iexec = createIEXECClient({ server: 'https://pool1api.iex.ec' });
 
 const ipfs = IpfsApi('nrxubuntu.eastus2.cloudapp.azure.com', '7001')
 // const ipfs = IpfsApi('localhost', '5001')
@@ -64,10 +64,10 @@ new Vue({
   el: '#app',
   watch: {
     $account(account) {
-      // this.$iexec.auth(web3.currentProvider, account).then(({ jwtoken, cookie }) => {
-      //   console.log(jwtoken); // this is given by auth.iex.ec server
-      //   console.log(cookie); // this is given by iExec server
-      // });
+      this.$iexec.auth(web3.currentProvider, account).then(({ jwtoken, cookie }) => {
+        console.log(jwtoken); // this is given by auth.iex.ec server
+        console.log(cookie); // this is given by iExec server
+      });
     }
   },
   async mounted () {

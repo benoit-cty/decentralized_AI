@@ -109,15 +109,7 @@
       fixed
       :width="600"
     >
-      <v-toolbar fixed app>
-        <v-toolbar-title>
-          Works
-        </v-toolbar-title>
-        <v-spacer></v-spacer>
-      </v-toolbar>
-      <v-content>
-        <Works />
-      </v-content>
+      <Works />
      </v-navigation-drawer>
      <v-snackbar
       top
