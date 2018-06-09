@@ -27,7 +27,8 @@ export const chains = {
     server: 'https://testxw.iex.ec:443',
     name: 'kovan',
     id: 42,
-    hub: '0x12b92a17b1ca4bb10b861386446b8b2716e58c9b'
+    hub: '0x12b92a17b1ca4bb10b861386446b8b2716e58c9b',
+    api: '0x58cde9db0d95c8b6122d72a90c0b10a6e01adf6d',
   },
 };
 chains['1'] = chains.mainnet;
@@ -48,6 +49,7 @@ export const chainsMap = {
   dev: '1137',
   1337: 'dev',
 };
+
 
 export const chainNames = ['mainnet', 'ropsten', 'rinkeby', 'kovan', 'dev'];
 export const chainIDs = ['1', '3', '4', '42', '1337'];

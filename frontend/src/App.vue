@@ -12,6 +12,10 @@
       <v-toolbar-title>
         {{ currChain }}
       </v-toolbar-title>
+      <v-spacer></v-spacer>
+        <v-btn icon @click.stop="drawer = !drawer">
+          <v-icon>menu</v-icon>
+        </v-btn>
     </v-toolbar>
     <v-content>
       <v-container fluid>
@@ -87,7 +91,7 @@
             </v-layout>
 
             <v-layout>
-              <v-btn :disabled="!image_url" block raised @click="iexec">
+              <v-btn :disabled="!image_url" block raised @click="iexec(orderId)">
                 IExec !
               </v-btn>
             </v-layout>
@@ -98,6 +102,23 @@
         </v-layout>
       </v-container>
     </v-content>
+    <v-navigation-drawer
+      temporary
+      right
+      v-model="drawer"
+      fixed
+      :width="600"
+    >
+      <v-toolbar fixed app>
+        <v-toolbar-title>
+          Works
+        </v-toolbar-title>
+        <v-spacer></v-spacer>
+      </v-toolbar>
+      <v-content>
+        <Works />
+      </v-content>
+     </v-navigation-drawer>
      <v-snackbar
       top
       multi-line
@@ -111,21 +132,23 @@
 
 <script>
   import Orders from './components/Orders'
-
+  import Works from './components/Works'
   import createIExecContracts from 'iexec-contracts-js-client';
   import { chains, chainsMap } from './chains'
 
   import buffer from 'buffer'
-  const oracleJSON = require('iexec-oracle-contract/build/contracts/IexecOracle.json');
+  
+  const Extensions = require('iexec-poco-v2/utils/extensions.js');
 
   export default {
     data () {
       return {
+        drawer: false,
         image_url: 'https://cdn-images-1.medium.com/max/1600/0*I0nyARrHiSl-a3lZ.',
         snackbar: false,
         uploading: false,
         message: "",
-        orderId: 'Choose a worker on the right',
+        orderId: null,
         dapp: '0xec3CF9FF711268ef329658DD2D233483Bd0127e6',
       }
     },
@@ -193,57 +216,55 @@
           reader.readAsArrayBuffer(f);
         }
       },
-      async iexec2 () {
-        const workUID = await this.$iexec.submitWorkByAppName('Keras', { cmdline: this.image_url });
-        console.log(workUID)
-      },
-      async iexec () {
+      async iexec (orderId) {
         if (!this.contracts) return
 
         const marketplaceAddress = await this.contracts.fetchMarketplaceAddress();
         const orderRPC = await this.contracts
           .getMarketplaceContract({ at: marketplaceAddress })
-          .getMarketOrder(this.orderId);
+          .getMarketOrder(orderId);
 
         if (!orderRPC) return
 
         const args = [
-          this.orderId,
+          orderId,
           orderRPC.workerpool,
           this.dapp, // dappAddress,
           '0x0000000000000000000000000000000000000000', // dataset
           this.params,
           '0x0000000000000000000000000000000000000000', // callback
-          '0x0000000000000000000000000000000000000000', // beneficiary
+          this.$account, // beneficiary
         ]
-        const transactionHash = await this.contracts
-          .getHubContract()
-          .buyForWorkOrder(...args)
-
-        const event = await this.contracts.getHubContract().Deposit((error, result) => {
-          console.log('event')
-          console.error(error)
-          console.log(result)
-        });
-
-        this.notify(`Fill order submitted. Waiting for transaction ${transactionHash} to be processed`)
-
-        console.log(transactionHash)
-
-        const receipt = await this.contracts.waitForReceipt(transactionHash)
+        const aIexecHubInstance = await this.contracts.getHubContract()
+        const txMined = await aIexecHubInstance.buyForWorkOrder(...args, {
+          from: this.$account
+        })
+        console.log(txMined)
+        const receipt = await this.contracts.waitForReceipt(txMined)
+        this.notify(`Fill order submitted. Waiting for transaction ${txMined} to be processed`)
 
         if (receipt.status === "0x0") {
           this.notify('Error processing the transaction')
         }
+        const events = await Extensions.getEventsPromise(aIexecHubInstance.WorkOrderActivated({}),orderId,10000000);
+        let woid = events[0].args.woid;
+        console.log(woid)
+        let aWorkOrderInstance = await this.contracts.getWorkOrderContract().at(woid);
+        console.log(aWorkOrderInstance)
+        let status = await aWorkOrderInstance.m_status.call();
+        console.log(status)
+
+        const completed = await Extensions.getEventsPromise(aIexecHubInstance.WorkOrderActivated({}),orderId,10000000);
+        console.log(completed)
         
 
-        this.$iexec.getWorkByExternalID(transactionHash).then(console.log); // print work description from submit txHash
-        const oracleContract = web3.eth.contract(oracleJSON.abi).at(oracleJSON.networks[this.$chainId].address);
-        this.$iexec
-          .waitForWorkResult(oracleContract.getWork, transactionHash)
-          .then(workResultURI => this.$iexec.createDownloadURI(workResultURI))
-          .then(console.log)
-          .catch(console.log.bind(console));  // let user open this URL in the browser to download the work result
+        // this.$iexec.getWorkByExternalID(transactionHash).then(console.log); // print work description from submit txHash
+        // const oracleContract = web3.eth.contract(oracleJSON.abi).at(oracleJSON.networks[this.$chainId].address);
+        // this.$iexec
+        //   .waitForWorkResult(oracleContract.getWork, transactionHash)
+        //   .then(workResultURI => this.$iexec.createDownloadURI(workResultURI))
+        //   .then(console.log)
+        //   .catch(console.log.bind(console));  // let user open this URL in the browser to download the work result
           
       },
       inputFile () {
@@ -251,7 +272,7 @@
       },
     },
     components: {
-       Orders
+       Orders, Works
     }
   }
 </script>
