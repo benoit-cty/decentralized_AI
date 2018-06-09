@@ -1,14 +1,17 @@
-# decentralized_AI
+# Decentralized AI (final project for Siraj's School of AI)
+
+## Authors
+Benoit C, Matthew McAteer, Alexandre Moreau, Jeddi Mees, Anita, Benas Z, & Taleb Marwen
 
 This is a first try at building a "Decentralized AI". Well it is just a semantic segmentation task that run in a decentralized fashion : The task is done on a machine in the internet, like in a proprietary cloud, but on a decentralized cloud : you do not have to create an account with the computer owner. All is handle by iExec.
 
-The semantic segmentation is done by the Mask_RCNN (https://github.com/matterport/Mask_RCNN) project trained on the COCO Dataset (http://cocodataset.org/).
+The semantic segmentation is done by the [Mask RCNN](https://github.com/matterport/Mask_RCNN) project trained on the [COCO Dataset](http://cocodataset.org/).
 
-My work was only to make a Docker image, based on the Modern Deep-learning container https://hub.docker.com/r/waleedka/modern-deep-learning/ from Waleed Abdulla, add Mask_RCNN in it.
-Add a modified version of the demo and package it for iExec.
+![MASK_R-CNN](https://github.com/trancept/decentralized_AI/blob/master/img/20180604_143926.png)
 
-iExec is a whole ecosystem with a market-place for DApps, Oracle mechanism, Scheduler, workers,... Dedicated to off-chain computing in a fully decentralized way.
-(https://cdn-images-1.medium.com/max/1200/1*iiERfyS1iqvVXNCXFrghfA.jpeg)
+The Docker image was based on the Modern Deep-learning container from [Waleed Abdulla](https://hub.docker.com/r/waleedka/modern-deep-learning/), with the Mask RCNN added into it along with a modified version of the demo packaged for iExec.
+
+[iExec is a whole ecosystem with a market-place for DApps, Oracle mechanism, scheduler, workers](https://cdn-images-1.medium.com/max/1200/1*iiERfyS1iqvVXNCXFrghfA.jpeg),... Dedicated to off-chain computing in a fully decentralized way.
 
 The V2 is just out (speaking from 1st of June 2018).
 
@@ -16,7 +19,8 @@ The V2 is just out (speaking from 1st of June 2018).
 
 The result is that you can call it quite like an API to get your resulting image :
 
-# How to run it
+# How to Run 
+## iExec Side
 
 ```
 cd frontend
@@ -28,6 +32,8 @@ Your browser will automatically go to localhost:8081 so you can access the front
 . Choose an image from your harddisk or copy-past an url.
 . Choose a worker in the list on the right.
 . Click on "iExec" button.
+
+## OpenMined Side
 
 # How we make it
 
@@ -74,7 +80,7 @@ iexec order init --buy
 *Important* : You have to edit iexec.json at these step to edit the "params" string to match the parameters you want to send to the job.
 
 
-### How to execute Dapp
+### How to execute iExec Dapp
 
 #### Easiest way
 

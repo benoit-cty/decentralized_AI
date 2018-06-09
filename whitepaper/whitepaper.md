@@ -10,6 +10,8 @@ WARNING : *this a student project and has to be taken as his, without any warran
 
 Artificial intelligence (AI) is an umbrella term for systems that can . In more recent years this has come to include the definitions of Machine Learning and by extension Deep Learning, techniques in computer science that allow programs to make inferences and predictions based on examples of input data. AI has been a boon to organizations with large silos of data at their disposal, but it has also raised some concerns. Some of these include but are not limited to user privacy, ownership of data, negative externalities of AI models optimizing for a narrowly-defined cost function, and latency and vulnerability of such centralized services. We propose a dual, general purpose paradigm for using decentralized artificial intelligence, that combines the best of two projects in the field: iExec and OpenMined.
 
+![MASK_R-CNN](https://github.com/trancept/decentralized_AI/blob/master/img/20180604_143926.png)
+
 ## BLUEPRINT FOR DECENTRALIZED ARTIFICIAL INTELLIGENCE
 
 Big tech companies are leading AI these days. They use AI in more and more functionality in every application. For example Photoshop now use deep learning to separate subject from background.
