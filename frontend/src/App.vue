@@ -247,17 +247,7 @@
         console.log(status)
 
         const completed = await Extensions.getEventsPromise(aIexecHubInstance.WorkOrderActivated({}),orderId,10000000);
-        console.log(completed)
-        
-
-        // this.$iexec.getWorkByExternalID(transactionHash).then(console.log); // print work description from submit txHash
-        // const oracleContract = web3.eth.contract(oracleJSON.abi).at(oracleJSON.networks[this.$chainId].address);
-        // this.$iexec
-        //   .waitForWorkResult(oracleContract.getWork, transactionHash)
-        //   .then(workResultURI => this.$iexec.createDownloadURI(workResultURI))
-        //   .then(console.log)
-        //   .catch(console.log.bind(console));  // let user open this URL in the browser to download the work result
-          
+        console.log(complete)
       },
       inputFile () {
         this.$refs['file-input'].click();

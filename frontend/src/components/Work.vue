@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import createIEXECClient from 'iexec-server-js-client'
 import { chainsMap } from '../chains'
 export default {
     props: {
@@ -42,6 +43,14 @@ export default {
                     return 'green'
             }
         },
+
+        hostname () {
+            if (this.work.uri) {
+                return this.work.uri.split('/').slice(2, -1).join('/')
+            } else {
+                return null;
+            }
+        },
     },
     mounted () {
         console.log(this.work)
@@ -49,9 +58,14 @@ export default {
     methods: {
         onClick () {
             if (this.work.uri) {
-                const download = this.$iexec.createDownloadURI(this.work.uri)
-                console.log(download)
-                window.open(download)
+                const iexec = createIEXECClient({ server: `https://${this.hostname}` });
+                iexec.auth(web3.currentProvider, this.$account).then(({ jwtoken, cookie }) => {
+                    console.log(jwtoken); // this is given by auth.iex.ec server
+                    console.log(cookie); // this is given by iExec server
+                    const download = iexec.createDownloadURI(this.work.uri)
+                    console.log(download)
+                    window.open(download)
+                })
             } else {
                 window.open(`https://explorer.iex.ec/${chainsMap[this.$chainId]}/work/${this.work.transactionHash}`)
             }
