@@ -1,13 +1,14 @@
-# Decentralized AI Whitepaper
+# Synergy between OpenMined and iExec
+## Decentralized AI Whitepaper for Siraj's Decentralized Apps
 
-## Intro
+## Authors
+Benoit C, Matthew McAteer, Alexandre Moreau, Jeddi Mees, Anita, Benas Z, & Taleb Marwen
 
-WARNING : this a student project and has to be taken as his, without any warranty of any kind. Use at you own risk.
+WARNING : *this a student project and has to be taken as his, without any warranty of any kind. Use at you own risk.* This is our final project for [TheSchool.AI](https://www.theschool.ai), a decentralized application course by Siraj Raval. This Whitepaper is inspired by the one from iExec and the OpenMined project. We talk a lot of iExec & OpenMined because it is the core technology we use for our project, but we have no link or affiliation of any kind with iExec.
 
-This is our final project for [TheSchool.AI](https://www.theschool.ai), a decentralized application course by Siraj Raval.
+## Introduction
 
-This Whitepaper is inspired by the one from iExec. We talk a lot of iExec because it is the core technology we use for our project.
-But we have no link or affiliation of any kind with iExec.
+Artificial intelligence (AI) is an umbrella term for systems that can . In more recent years this has come to include the definitions of Machine Learning and by extension Deep Learning, techniques in computer science that allow programs to make inferences and predictions based on examples of input data. AI has been a boon to organizations with large silos of data at their disposal, but it has also raised some concerns. Some of these include but are not limited to user privacy, ownership of data, negative externalities of AI models optimizing for a narrowly-defined cost function, and latency and vulnerability of such centralized services. We propose a dual, general purpose paradigm for using decentralized artificial intelligence, that combines the best of two projects in the field: iExec and OpenMined.
 
 ## BLUEPRINT FOR DECENTRALIZED ARTIFICIAL INTELLIGENCE
 
@@ -23,13 +24,18 @@ So there is three challenges :
 Our contribution with this project is to address these points, beginning by the last.
 Allowing anyone to compute Deep Learning algorithms with less knowledge as possible.
 
-## BACKGROUND
+![front_screenshot](https://github.com/trancept/decentralized_AI/img/screenshot.png)
 
-Our project is build around iExec and IPFS.
-IPFS means Iner-Planetary FileSystem. It's a way to share files in a peer-to-peer way.
-It work perfectly well but lack of a way to incentives poeple to keep files online. FileCoin aim at doing this soon.
-iExec goal is to allow off-chain computation in a decentralized way. Anybody could share his computer power and get RLC token in return. In the future, datasets could also be sold on the network.
-iExec just release is testnet last week so it is more challenging to use it. For example there is only company worker to execute task so when they are stopped we have no way to work on our project.
+## Technologies
+
+Our project is build around iExec, the Inter-Planetary FileSystem (IPFS), and OpenMined.
+IPFS is a distributed data storage system. Rather than having content addressed by servers like with HTTP, IPFS creates unique addresses for content itself that is copied redundantly over multiple nodes. It's functionality has already been demonstrated multiple times in the real world, and multiple projects exist to build on top of it (such as FileCoin developing ways to incentivize people to host these nodes, and thereby create a more stable network for people to keep their files on).
+
+The iExec project goal is to allow off-chain computation in a decentralized fashion. People can share their spare computing capacity for a given machine learning task, and they can be rewarded with RLC tokens. In the future, the project aims to sell unique datasets on this network (NOTE: iExec just recently released its testnet last week, so it is more challenging to use it. For example there is only company worker to execute task so when they are stopped we have no way to work on our project).
+
+If iExec offers the marketplace, incentivization, and computation management system for distributed AI, the OpenMined adds the computing paradigm for user and data anonymization. OpenMined combines machine learning with homomorphic encyption (encyrption that still allows for computations to be run on the encrypted data), and federated machine learning ()
+
+Combined, the result is a fully distributed information storage, processing, and buying/selling system.
 
 ## MARKET OPPORTUNITY  
 
@@ -38,8 +44,6 @@ OpenSource was a first step. Blockchain like Ethereum took it to the next level 
 But current blockchain, or best call it distributed ledger technology (DLT), coulnd't handle heavy computing task.
 We are at the beginning of a new erae with project like [Open Mined](XXX) and iExec for example.
 These project aim at computing challenging task. With a great addition to privacy for Open Mined.
-
-### The perfect timing for go-to-market
 
 Privacy is no more a cypherpunk concept, it is a mainstream subject with GDPR and Facebook numerous leaks.
 More and more poeple saw their data as valuable assets and meaningful.
@@ -77,7 +81,7 @@ We have two main part : the front, who is the user interface and the back, which
 
 XXX Insert schema here XXX
 
-#### The Back
+#### The Back-end
 We build a Docker image with Keras, Tensorflow, Python 3 and matplotlib in headless mode to render the result to a file.
 
 We add the RCNN (regional convolutional neural network) weight file trained on [COCO dataset](http://cocodataset.org/).
@@ -97,9 +101,9 @@ continue his process.
 The computation of the image is done off-chain and act as an [Oracle](https://medium.com/bethereum/how-oracles-connect-smart-contracts-to-the-real-world-a56d3ed6a507).
 
 
-### The front
+### The Front-end
 
-XXX Insert screen capture XXX
+![front_screenshot](https://github.com/trancept/decentralized_AI/img/screenshot.png)
 
 We use NodeJS, Vue.JS, [Vuetify](https://vuetifyjs.com/en/), ETHjs, the [iExec front SDK](https://github.com/iExecBlockchainComputing/iexec-server-js-client), and IPFS-api.
 We use IPFS to allow user to upload an image to IPFS. But it is not mandatory, a user could also copy-paste an url from Internet.
@@ -128,17 +132,19 @@ The data marketplace is where you could sell or buy data. But it's not available
 
 ## ROADMAP
 Our goal will be achieve when global warming was ended.
+
 ## FINANCIALS
 ### costs
 We have no cost, we do it on our part time and kind peoples give us computing power on testnet.
 ### token sale
 We do not plan to made an ICO because we believe in Humanity to contribute to help us in our goal.
 We took a small fee on every transaction made using our Dapp to allow the team to go to Las Vegas and get drunk once a week.
-## MEET THE TEAM
-Name and pictures of team members with little bio.
+
+
 ## REFERENCES
-Link to papers and project we use
-Vuetify
-Mask RCNN
-iExec
-Open Mined
+Below is a list of the papers and projects that have inspired this work:
+
+- Vuetify
+- Mask RCNN
+- iExec
+- OpenMined
