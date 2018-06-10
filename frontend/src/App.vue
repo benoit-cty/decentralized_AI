@@ -119,6 +119,17 @@
       {{ message }}
       <v-btn flat color="pink" @click.native="snackbar = false">Close</v-btn>
     </v-snackbar>
+    <v-dialog persistent :value="!$account" max-width="500px">
+      <v-card>
+        <v-card-title>
+          <span>Metamask</span>
+          <v-spacer></v-spacer>
+        </v-card-title>
+        <v-card-text>
+          Please login with Metamask to use this app 
+        </v-card-text>
+      </v-card>
+    </v-dialog>
   </v-app>
 </template>
 
