@@ -116,21 +116,25 @@ This project is currently without cost and has no assigned budget. Development i
 We build a great team to be able to achieve our goal.
 
 ### Benoît Courty
-(https://avatars2.githubusercontent.com/u/6603048?s=400&u=63de9f6f8e387609dffc0e2d92170dfb804600da&v=4)
-French technical project manager who works as a free-lance in big company in energy, insurance , e-commerce and TV since 1999. He also co-founded an UAV start-up, Neo-Robotix, that unfortunately didn't find his market fit.
+![Benoît](../img/ben-rd168.png)
 
-He's deeply looking at blockchain technology since one year, beginning with trading, then mining and now with development of smart contract and decentralized computing with project like iExec. As you can see in his GitHub :https://github.com/trancept/
+French technical project manager who works as a free-lancer in big company in energy, insurance , e-commerce and TV since 1999. He also co-founded an UAV start-up, Neo-Robotix, that unfortunately didn't find his market fit.
+
+He's deeply looking at blockchain technology since one year, beginning with trading, then mining and now with development of smart contract and decentralized computing with project like iExec. As you can see in his GitHub :https://github.com/trancept/ He's looking for new opportunities in blockchain and machine learning.
 
 ### Matthew McAteer
-(https://avatars2.githubusercontent.com/u/16986576?s=460&v=4)
-Matthew is a Developer at Inkrypt, a company working on using IPFS to create censorship-resistant journalism tools, and Data Scientist at HelloFriend, which works on consumer DApps for event organizing and social media. Matthew has also worked with Companies such as Google and Suspect Technologies, and is a Graduate of Brown University. 
+![Matthew](../img/Mattew-rd168.png)
+
+Matthew is a Developer at [Inkrypt](https://www.inkrypt.io/), a company working on using IPFS to create censorship-resistant journalism tools, and Data Scientist at HelloFriend, which works on consumer DApps for event organizing and social media. Matthew has also worked with Companies such as Google and Suspect Technologies, and is a Graduate of Brown University. 
 
 ### Alexandre Moreau
-(https://dgivdslhqe3qo.cloudfront.net/careers/members/9172/thumb_avatar_1526567146.jpg)
+![Alexandre](../img/Alex-rd.png)
+
 Alexandre graduated in 2016 as a Computer Science engineer specialized in Robotics from the Institut polytechnique de Bordeaux in France. He currently works as an Integration Engineer at Deepomatic, a start-up specialized in Deep-Learning and video recognition systems. Before that, he worked as a R&D Software Engineer at another startup specialized in 3D printing and completed three research internships in Bioinformatics, Computer Graphics and High Performance Computing.
 
 ### Jeddi Mees
-(https://pbs.twimg.com/profile_images/810932888271224832/yQMkxbg0_400x400.jpg)
+![Jeddi](../img/Jeddi-rd168.png)
+
 Growth hacker from the Growth Tribe Academy in Amsterdam and technical dev from LeWagon. He worked for EdTech and FoodTech industry as a growth marketer. Since 2016, he's helping startups and corporates to find new ways to grow.
 He's passionate about blockchain technology and AI. He's looking for new opportunities into this space as a growth marketer/product marketer. User Acquisition, Conversion Optimization and Retention, that's his specialization https://www.linkedin.com/in/jeddi-mees-i-do-growth/
 
