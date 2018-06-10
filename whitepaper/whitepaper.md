@@ -1,10 +1,12 @@
 # Synergy between OpenMined and iExec
 ## Decentralized AI Whitepaper for Siraj's Decentralized Apps
 
+Whitepaper giving an overview of the project as of June 2018.
+
 WARNING : *this a student project and has to be taken as his, without any warranty of any kind. Use at you own risk.* This is our final project for [TheSchool.AI](https://www.theschool.ai), a decentralized application course by Siraj Raval. This Whitepaper is inspired by the one from iExec and the OpenMined project. We talk a lot of iExec & OpenMined because it is the core technology we use for our project, but we have no link or affiliation of any kind with iExec.
 
 ## Authors
-Benoit C, Matthew McAteer, Alexandre Moreau, Jeddi Mees.
+Benoit Courty, Matthew McAteer, Alexandre Moreau and Jeddi Mees.
 
 ## Introduction
 
