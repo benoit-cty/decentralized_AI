@@ -1,39 +1,43 @@
 # Synergy between OpenMined and iExec
 ## Decentralized AI Whitepaper for Siraj's Decentralized Apps
 
+WARNING : *this a student project and has to be taken as his, without any warranty of any kind. Use at you own risk.* This is our final project for [TheSchool.AI](https://www.theschool.ai), a decentralized application course by Siraj Raval. This Whitepaper is inspired by the one from iExec and the OpenMined project. We talk a lot of iExec & OpenMined because it is the core technology we use for our project, but we have no link or affiliation of any kind with iExec.
+
 ## Authors
 Benoit C, Matthew McAteer, Alexandre Moreau, Jeddi Mees.
 
 ## Introduction
 
-Artificial intelligence (AI) is an umbrella term for systems that can . In more recent years this has come to include the definitions of Machine Learning and by extension Deep Learning, techniques in computer science that allow programs to make inferences and predictions based on examples of input data. AI has been a boon to organizations with large silos of data at their disposal, but it has also raised some concerns. Some of these include but are not limited to user privacy, ownership of data, negative externalities of AI models optimizing for a narrowly-defined cost function, and latency and vulnerability of such centralized services. We propose a dual, general purpose paradigm for using decentralized artificial intelligence, that combines the best of two projects in the field: iExec and OpenMined.
+Artificial Intelligence (AI) is an umbrella term for systems that can learn and not only execute already writen behaviour. In more recent years this has come to include the definitions of Machine Learning and by extension Deep Learning, techniques in computer science that allow programs to make inferences and predictions based on examples of input data. AI has been a boon to organizations with large silos of data at their disposal, but it has also raised some concerns. Some of these include but are not limited to user privacy, ownership of data, negative externalities of AI models optimizing for a narrowly-defined cost function, and latency and vulnerability of such centralized services. We propose a dual, general purpose paradigm for using decentralized artificial intelligence, that combines the best of two projects in the field: iExec and OpenMined.
 
-![MASK_R-CNN](https://github.com/trancept/decentralized_AI/blob/master/img/20180604_143926.png)
+![MASK_R-CNN](../img/20180604_143926.png)
 
 ## BLUEPRINT FOR DECENTRALIZED ARTIFICIAL INTELLIGENCE
 
 Big tech companies are leading AI these days. They use AI in more and more functionality in every application. For example Photoshop now use deep learning to separate subject from background.
+
 Things like that is really difficult for open source software because even with engineer willing to add such functionality they don't have the Data. Data is the currency of this century. And we give them for free to these company to allow them to sell us product in return !
+
 That is a non-sense. We all deserve to keep our data safe and be able to monetize or give them to who we want.
 The leading technology for AI is Deep Learning, the concept is simple : just send millions of data with associated label (example : a picture of a cat with label "cat") to a computer program that will learn by itself to identify a cat when he saw one.
+
 So there is three challenges :
 - Having millions of data with label
 - Having the computing power to train these algorithms
 - Democratize the use of AI
 
-Our contribution with this project is to address these points, beginning by the last.
-Allowing anyone to compute Deep Learning algorithms with less knowledge as possible.
+Our contribution with this project is to address these points. Allowing anyone to compute Deep Learning algorithms with less knowledge as possible.
 
-![iexec_blueprint](https://github.com/trancept/decentralized_AI/blob/master/img/architecture_2.png)
 
 ## Technologies
 
 Our project is build around iExec, the Inter-Planetary FileSystem (IPFS), and OpenMined.
+
 IPFS is a distributed data storage system. Rather than having content addressed by servers like with HTTP, IPFS creates unique addresses for content itself that is copied redundantly over multiple nodes. It's functionality has already been demonstrated multiple times in the real world, and multiple projects exist to build on top of it (such as FileCoin developing ways to incentivize people to host these nodes, and thereby create a more stable network for people to keep their files on).
 
 The iExec project goal is to allow off-chain computation in a decentralized fashion. People can share their spare computing capacity for a given machine learning task, and they can be rewarded with RLC tokens. In the future, the project aims to sell unique datasets on this network (NOTE: iExec just recently released its testnet last week, so it is more challenging to use it. For example there is only company worker to execute task so when they are stopped we have no way to work on our project).
 
-If iExec offers the marketplace, incentivization, and computation management system for distributed AI, the OpenMined adds the computing paradigm for user and data anonymization. OpenMined combines machine learning with homomorphic encyption (encyrption that still allows for computations to be run on the encrypted data), and federated machine learning ()
+If iExec offers the marketplace, incentivization, and computation management system for distributed AI, the OpenMined adds the computing paradigm for user and data anonymization. OpenMined combines machine learning with homomorphic encyption (encyrption that still allows for computations to be run on the encrypted data), and federated machine learning (improvement of the model by learning on the user data on his device).
 
 Combined, the result is a fully distributed information storage, processing, and buying/selling system.
 
@@ -42,7 +46,7 @@ Combined, the result is a fully distributed information storage, processing, and
 Decentralisation is essential if we wan't to get our privacy and liberty back.
 OpenSource was a first step. Blockchain like Ethereum took it to the next level by allowing to incentive peoples.
 But current blockchain, or best call it distributed ledger technology (DLT), coulnd't handle heavy computing task.
-We are at the beginning of a new erae with project like [Open Mined](XXX) and iExec for example.
+We are at the beginning of a new erae with project like [Open Mined](https://www.openmined.org/) and iExec for example.
 These project aim at computing challenging task. With a great addition to privacy for Open Mined.
 
 Privacy is no more a cypherpunk concept, it is a mainstream subject with GDPR and Facebook numerous leaks.
@@ -55,29 +59,35 @@ Blockchain is more challenging, most poeple sees it only like a crypto-currency 
 
 ### The dapps market
 DAPPs means Decentralized Applications. That’s a new kind of applications. These types of applications are not owned by anyone, can’t be shut down, and cannot have downtime. A DAPP should meet these criteria: Open Source, Decentralized, Incentive (digital assets for feeling itself). There’s DAPPS built on top of the two biggest blockchain platforms Bitcoin and Ethereal. There’s also some DAPPs built on their own blockchain.
-New DAPPs are built every day, as you can see on https://www.stateofthedapps.com, listing 1576 DAPPs on his explorer, or even on https://dappradar.com
+
+New DAPPs are built every day, as you can see on https://www.stateofthedapps.com, listing 1 576 DAPPs on his explorer, or even on https://dappradar.com
 
 Everything can be decentralized. We believe that in the future, all kind of applications will be decentralized, even the bigger ones.
+
 One of the current issue is that dapps are not necessarily user friendly and it’s pretty hard to be mass market. Another issue, is scalability. Ethereum’s scalability issues were recently emphasized by the popular cat-collecting virtual game CryptoKitties (DAPP game). The viral game caused the network, that can only handle 10 transactions per second to become clogged, and transaction fees skyrocketed.
 
 ### The traditional cloud market
 
-It's a huge market. Many company transfert their infrastructures to the cloud. XXX Market value ?
+Many company transfert their infrastructures to the cloud. It's a huge and continuously growing market of $140 billions in 2018 only. But privacy and at least knowing where datas goes in the cloud is a growing concern too.
 
 ### The edge and fog computing market
 
-A new approach began to emmerrge with "Fog Computing". XXX Explain ?
+A new approach began to emmerge with "Fog Computing". In this vision, the edge devices carry out all the computation and storage they can handle. Only the important states are stored online. This combine well with decentralization and blockchain.
 
 ## TECHNOLOGY OVERVIEW
 ### Background
 
 Computing on blockchain is really limited to few instructions. And it will probably remain like that.
-But there is the need for heavy computation like AI, video encoding, 3D rendering to be done decentralized.
-This is what we will demonstrate with our project.
+
+But there is the need for heavy computation like AI, video encoding, 3D rendering to be done that a device like a smartphone r a laptop could not handle.
+
+This is what we will tackle in our project.
 
 ### Our stack
 
-We have two main part : the front, who is the user interface and the back, which do the computation.
+We have two main part :
+- The training part using Open Mined.
+- The prediction part. With the front, who is the user interface and the back, which do the computation.
 
 ![project_blueprint](https://github.com/trancept/decentralized_AI/blob/master/img/architecture_1.png)
 
@@ -138,7 +148,7 @@ Alexandre graduated in 2016 as a Computer Science engineer specialized in Roboti
 Growth hacker from the Growth Tribe Academy in Amsterdam and technical dev from LeWagon. He worked for EdTech and FoodTech industry as a growth marketer. Since 2016, he's helping startups and corporates to find new ways to grow.
 He's passionate about blockchain technology and AI. He's looking for new opportunities into this space as a growth marketer/product marketer. User Acquisition, Conversion Optimization and Retention, that's his specialization https://www.linkedin.com/in/jeddi-mees-i-do-growth/
 
-WARNING : *this a student project and has to be taken as his, without any warranty of any kind. Use at you own risk.* This is our final project for [TheSchool.AI](https://www.theschool.ai), a decentralized application course by Siraj Raval. This Whitepaper is inspired by the one from iExec and the OpenMined project. We talk a lot of iExec & OpenMined because it is the core technology we use for our project, but we have no link or affiliation of any kind with iExec.
+
 
 ## REFERENCES
 
