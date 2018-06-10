@@ -89,24 +89,53 @@ We have two main part :
 - The training part using Open Mined.
 - The prediction part. With the front, who is the user interface and the back, which do the computation.
 
+### Training part : Open Mined
+
+This part is not finish yet. We have only made a proof of concept to be sure it is the best solution for our need.
+
+You can find it in the [openmined directory](https://github.com/trancept/decentralized_AI/tree/master/openmined).
+
+What it does is that it trains a pyTorch model using the Open Mined distributed grid computing.
+
+![Open Mined](https://cdn-images-1.medium.com/max/1600/1*GK9cCoOLSii191cjAlwsww.png)
+
+After training a model, we transfert it to the second part of the project to be use by end-users.
+
+### Prediction Part : iExec
+
+The prediction part use a Docker image that is executed on iExec Network when a user request an AI task.
+
+#### Notes on iExec infra-structure
+
+iExec offerx a cloud computing marketplace to allow cloud computing as a commodity. It means that one can easily by computing ressources.
+
+![iExec](https://github.com/trancept/decentralized_AI/blob/master/img/architecture_2.png)
+
+- A computing ressource is called a "worker".
+- Workers are grouped together in a "workerpool". This worker pool could be a former cloud provider who want to get money for his unsued computing power. Or individuals who want to get a little bit of money from their home computer.
+- The iExec marketplace is the place where workers sell their power to buyers. Like an open marketplace or an exchange. It's a pay-per-task (ppt) system. A bit like cloud API provider.
+- The DApp store is where you can find packaged application to run on iExec network. For  or project that's where we put our semantic segmentation DApp.
+- The data marketplace is where you could sell or buy data (available in a future release).
+
+Our project is build above iExec to offer an easy way to ask for a machine learning task.
+
+Here is the architecture :
+
 ![project_blueprint](https://github.com/trancept/decentralized_AI/blob/master/img/architecture_1.png)
 
-### The Back-end
+#### The Back-end
 
 We build a Docker image with Keras, Tensorflow, Python 3 and matplotlib in headless mode to render the result to a file. We add the RCNN (regional convolutional neural network) weight file trained on [COCO dataset](http://cocodataset.org/). We made a Python script based on the demo Jupyter Notebook from Matterport for [Mask RCNN](https://github.com/matterport/Mask_RCNN). We add the Docker image to [DockerHub](https://hub.docker.com/). We made an iExec DApp (decentralized application) using the just released [iExec SDK V2](https://github.com/iExecBlockchainComputing/iexec-sdk). We deploy it to the [iExec marketplace](https://market.iex.ec/). So we now have a DApp ready to be called by any Ethereum smart contract. The contract call the DApp with the image URL to process. When the processing is finish a callback function is called so the contrat could continue his process. The computation of the image is done off-chain and act as an [Oracle](https://medium.com/bethereum/how-oracles-connect-smart-contracts-to-the-real-world-a56d3ed6a507).
 
-### The Front-end
+#### The Front-end
 
 ![front_screenshot](https://github.com/trancept/decentralized_AI/blob/master/img/front_preview.png)
 
 We use NodeJS, Vue.JS, [Vuetify](https://vuetifyjs.com/en/), ETHjs, the [iExec front SDK](https://github.com/iExecBlockchainComputing/iexec-server-js-client), and IPFS-api. We use IPFS to allow user to upload an image to IPFS. But it is not mandatory, a user could also copy-paste an url from Internet. Then the user pays the processing in RLC currency and the Gas in ETH with Metamask.
 
-### Note on Proof-of-contribution
+#### Note on Proof-of-contribution
 Proof of Contibution (PoCo) is the way iExec ensure that a worker do not cheat when we pay him for a work. A worker must make a deposit and if they cheat, they loose the deposit. This is a core functionnality for iExec. It means that task for the distributed computation must be probabilistic to be able to check against cheating.
 
-## THE MARKETPLACE FOR CLOUD RESOURCES
-
-iExec offerx a cloud computing marketplace to allow cloud computing as a commodity. It means that one can easily by computing ressources. A computing ressource is called a "worker". Workers are grouped together in a "workerpool". This worker pool could be a former cloud provider who want to get money for his unsued computing power. Or individuals who want to get a little bit of money from their home computer. The iExec marketplace is the place where workers sell their power to buyers. Like an open marketplace or an exchange. It's a pay-per-task (ppt) system. A bit like cloud API provider. The DApp store is where you can find packaged application to run on iExec network. For  or project that's where we put our semantic segmentation DApp. The data marketplace is where you could sell or buy data (available in a future release).
 
 ## ROADMAP
 ### Overview
