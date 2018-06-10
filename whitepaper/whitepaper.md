@@ -107,7 +107,7 @@ After training a model, we transfert it to the second part of the project to be 
 
 The prediction part use a Docker image that is executed on iExec Network when a user request an AI task.
 
-#### Notes on iExec infra-structure
+#### iExec infra-structure
 
 iExec offerx a cloud computing marketplace to allow cloud computing as a commodity. It means that one can easily by computing ressources.
 
@@ -119,6 +119,7 @@ iExec offerx a cloud computing marketplace to allow cloud computing as a commodi
 - The DApp store is where you can find packaged application to run on iExec network. For  or project that's where we put our semantic segmentation DApp.
 - The data marketplace is where you could sell or buy data (available in a future release).
 
+#### Architecture
 Our project is build above iExec to offer an easy way to ask for a machine learning task.
 
 Here is the architecture :
