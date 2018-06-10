@@ -125,13 +125,31 @@ Here is the architecture :
 
 #### The Back-end
 
-We build a Docker image with Keras, Tensorflow, Python 3 and matplotlib in headless mode to render the result to a file. We add the RCNN (regional convolutional neural network) weight file trained on [COCO dataset](http://cocodataset.org/). We made a Python script based on the demo Jupyter Notebook from Matterport for [Mask RCNN](https://github.com/matterport/Mask_RCNN). We add the Docker image to [DockerHub](https://hub.docker.com/). We made an iExec DApp (decentralized application) using the just released [iExec SDK V2](https://github.com/iExecBlockchainComputing/iexec-sdk). We deploy it to the [iExec marketplace](https://market.iex.ec/). So we now have a DApp ready to be called by any Ethereum smart contract. The contract call the DApp with the image URL to process. When the processing is finish a callback function is called so the contrat could continue his process. The computation of the image is done off-chain and act as an [Oracle](https://medium.com/bethereum/how-oracles-connect-smart-contracts-to-the-real-world-a56d3ed6a507).
+We build a Docker image with Keras, Tensorflow, Python 3 and matplotlib in headless mode to render the result to a file.
+
+We add the RCNN (regional convolutional neural network) weight file trained on [COCO dataset](http://cocodataset.org/).
+
+We made a Python script based on the demo Jupyter Notebook from Matterport for [Mask RCNN](https://github.com/matterport/Mask_RCNN). We add the Docker image to [DockerHub](https://hub.docker.com/).
+
+We made an iExec DApp (decentralized application) using the just released [iExec SDK V2](https://github.com/iExecBlockchainComputing/iexec-sdk).
+
+We deploy it to the [iExec marketplace](https://market.iex.ec/).
+
+So we now have a DApp ready to be called by any Ethereum smart contract. The contract call the DApp with the image URL to process.
+
+When the processing is finish a callback function is called so the contrat could continue his process.
+
+The computation of the image is done off-chain and act as an [Oracle](https://medium.com/bethereum/how-oracles-connect-smart-contracts-to-the-real-world-a56d3ed6a507).
 
 #### The Front-end
 
 ![front_screenshot](https://github.com/trancept/decentralized_AI/blob/master/img/front_preview.png)
 
-We use NodeJS, Vue.JS, [Vuetify](https://vuetifyjs.com/en/), ETHjs, the [iExec front SDK](https://github.com/iExecBlockchainComputing/iexec-server-js-client), and IPFS-api. We use IPFS to allow user to upload an image to IPFS. But it is not mandatory, a user could also copy-paste an url from Internet. Then the user pays the processing in RLC currency and the Gas in ETH with Metamask.
+We use NodeJS, Vue.JS, [Vuetify](https://vuetifyjs.com/en/), ETHjs, the [iExec front SDK](https://github.com/iExecBlockchainComputing/iexec-server-js-client), and IPFS-api.
+
+We use IPFS to allow user to upload an image to IPFS. But it is not mandatory, a user could also copy-paste an url from Internet.
+
+Then the user pays the processing in RLC currency and the Gas in ETH with Metamask. That's a current drawback of our solution as the user need to have ETH, buy RLC and transfert RLC from his wallet to the iExec "account". Many action before being able to use the DApp.
 
 #### Note on Proof-of-contribution
 Proof of Contibution (PoCo) is the way iExec ensure that a worker do not cheat when we pay him for a work. A worker must make a deposit and if they cheat, they loose the deposit. This is a core functionnality for iExec. It means that task for the distributed computation must be probabilistic to be able to check against cheating.
@@ -152,7 +170,7 @@ This project is currently without cost and has no assigned budget. Development i
 
 ## TEAM
 
-We build a great team to be able to achieve our goal.
+We are a great team, perfectly able to achieve our goal.
 
 ### Benoît Courty
 ![Benoît](../img/ben-rd168.png)
