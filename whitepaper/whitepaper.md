@@ -145,6 +145,8 @@ The computation of the image is done off-chain and act as an [Oracle](https://me
 
 #### The Front-end
 
+On the left you upload your image. On the right you saw the workers and the associated cost. The five category represent different power. They are green if available.
+
 ![front_screenshot](https://github.com/trancept/decentralized_AI/blob/master/img/front_preview.png)
 
 We use NodeJS, Vue.JS, [Vuetify](https://vuetifyjs.com/en/), ETHjs, the [iExec front SDK](https://github.com/iExecBlockchainComputing/iexec-server-js-client), and IPFS-api.
@@ -152,6 +154,10 @@ We use NodeJS, Vue.JS, [Vuetify](https://vuetifyjs.com/en/), ETHjs, the [iExec f
 We use IPFS to allow user to upload an image to IPFS. But it is not mandatory, a user could also copy-paste an url from Internet.
 
 Then the user pays the processing in RLC currency and the Gas in ETH with Metamask. That's a current drawback of our solution as the user need to have ETH, buy RLC and transfert RLC from his wallet to the iExec "account". Many action before being able to use the DApp.
+
+The user also could check all of his transaction and get the result :
+![Front status](https://github.com/trancept/decentralized_AI/blob/master/img/Screenshot_from_2018-06-09_14-55-45.png)
+
 
 #### Note on Proof-of-contribution
 Proof of Contibution (PoCo) is the way iExec ensure that a worker do not cheat when we pay him for a work. A worker must make a deposit and if they cheat, they loose the deposit. This is a core functionnality for iExec. It means that task for the distributed computation must be probabilistic to be able to check against cheating.
