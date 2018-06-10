@@ -24,7 +24,7 @@
             <v-layout>
               <v-card width="100%">
                 <img v-if="image_url" @click="inputFile" :src="image_url" width="100%">
-                <img v-else src="https://cdn-images-1.medium.com/max/1600/0*I0nyARrHiSl-a3lZ." @click="inputFile" width="100%">
+                <img v-else src="https://raw.githubusercontent.com/trancept/decentralized_AI/master/img/iexec-team.jpeg" @click="inputFile" width="100%">
                 <v-progress-linear indeterminate v-if="uploading"></v-progress-linear>
                 <v-card-text>
                   <v-layout row>
@@ -126,7 +126,7 @@
           <v-spacer></v-spacer>
         </v-card-title>
         <v-card-text>
-          Please login with Metamask to use this app 
+          Please login with Metamask to use this app
         </v-card-text>
       </v-card>
     </v-dialog>
@@ -140,14 +140,14 @@
   import { chains, chainsMap } from './chains'
 
   import buffer from 'buffer'
-  
+
   const Extensions = require('iexec-poco-v2/utils/extensions.js');
 
   export default {
     data () {
       return {
         drawer: false,
-        image_url: 'https://cdn-images-1.medium.com/max/1600/0*I0nyARrHiSl-a3lZ.',
+        image_url: 'https://raw.githubusercontent.com/trancept/decentralized_AI/master/img/iexec-team.jpeg',
         snackbar: false,
         uploading: false,
         message: "",
