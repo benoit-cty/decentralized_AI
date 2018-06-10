@@ -10,15 +10,14 @@
             </v-btn>
         </v-toolbar>
         <v-content>
-            <Works />
+            <v-container fluid>
+                <v-layout>
+                    <v-list two-line>
+                        <Work v-for="work in works" v-if="$account && (work.requester.toLowerCase() === $account.toLowerCase())" :key="work._id" :work="work" />
+                    </v-list>
+                </v-layout>
+            </v-container>
         </v-content>
-        <v-container fluid>
-            <v-layout>
-                <v-list two-line>
-                    <Work v-for="work in works" v-if="work.requester.toLowerCase() === $account.toLowerCase()" :key="work._id" :work="work" />
-                </v-list>
-            </v-layout>
-        </v-container>
     </v-app>
 </template>
 
