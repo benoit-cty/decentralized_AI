@@ -4,6 +4,27 @@
 ## Authors
 Benoit C, Matthew McAteer, Alexandre Moreau, Jeddi Mees, Anita, Benas Z, & Taleb Marwen
 
+### Benoit C
+
+French technical project manager who works in big company in energy, insurance , e-commerce and TV since 1999. He also co-founded an UAV start-up, that unfortunately didn't find his market fit.
+
+He works in Agile teams since 2010. He has been Product Owner and also Scrum Master.
+
+He's deeply looking at blockchain technology since one year, beginning with trading, then mining and now with development of smart contract and decentralized computing with project like iExec. As you can see in his GitHub :https://github.com/trancept/
+
+### Matthew McAteer
+
+Matthew is a Developer at Inkrypt, a company working on using IPFS to create censorship-resistant journalism tools, and Data Scientist at HelloFriend, which works on consumer DApps for event organizing and social media. Matthew has also worked with Companies such as Google and Suspect Technologies, and is a Graduate of Brown University. (https://avatars2.githubusercontent.com/u/16986576?s=460&v=4)
+
+### Alexandre Moreau
+
+Alexandre graduated in 2016 as a Computer Science engineer specialized in Robotics from the Institut polytechnique de Bordeaux in France. He currently works as an Integration Engineer at Deepomatic, a start-up specialized in Deep-Learning and video recognition systems. Before that, he worked as a R&D Software Engineer at another startup specialized in 3D printing and completed three research internships in Bioinformatics, Computer Graphics and High Performance Computing.
+
+### Jeddi Mees
+
+Growth hacker from the Growth Tribe Academy in Amsterdam and technical dev from LeWagon. He worked for EdTech and FoodTech industry as a growth marketer. Since 2016, he's helping startups and corporates to find new ways to grow.
+He's passionate about blockchain technology and AI. He's looking for new opportunities into this space as a growth marketer/product marketer. User Acquisition, Conversion Optimization and Retention, that's his specialization https://www.linkedin.com/in/jeddi-mees-i-do-growth/
+
 WARNING : *this a student project and has to be taken as his, without any warranty of any kind. Use at you own risk.* This is our final project for [TheSchool.AI](https://www.theschool.ai), a decentralized application course by Siraj Raval. This Whitepaper is inspired by the one from iExec and the OpenMined project. We talk a lot of iExec & OpenMined because it is the core technology we use for our project, but we have no link or affiliation of any kind with iExec.
 
 ## Introduction
