@@ -2,30 +2,7 @@
 ## Decentralized AI Whitepaper for Siraj's Decentralized Apps
 
 ## Authors
-Benoit C, Matthew McAteer, Alexandre Moreau, Jeddi Mees, Anita, Benas Z, & Taleb Marwen
-
-### Benoit C
-
-French technical project manager who works in big company in energy, insurance , e-commerce and TV since 1999. He also co-founded an UAV start-up, that unfortunately didn't find his market fit.
-
-He works in Agile teams since 2010. He has been Product Owner and also Scrum Master.
-
-He's deeply looking at blockchain technology since one year, beginning with trading, then mining and now with development of smart contract and decentralized computing with project like iExec. As you can see in his GitHub :https://github.com/trancept/
-
-### Matthew McAteer
-
-Matthew is a Developer at Inkrypt, a company working on using IPFS to create censorship-resistant journalism tools, and Data Scientist at HelloFriend, which works on consumer DApps for event organizing and social media. Matthew has also worked with Companies such as Google and Suspect Technologies, and is a Graduate of Brown University. (https://avatars2.githubusercontent.com/u/16986576?s=460&v=4)
-
-### Alexandre Moreau
-
-Alexandre graduated in 2016 as a Computer Science engineer specialized in Robotics from the Institut polytechnique de Bordeaux in France. He currently works as an Integration Engineer at Deepomatic, a start-up specialized in Deep-Learning and video recognition systems. Before that, he worked as a R&D Software Engineer at another startup specialized in 3D printing and completed three research internships in Bioinformatics, Computer Graphics and High Performance Computing.
-
-### Jeddi Mees
-
-Growth hacker from the Growth Tribe Academy in Amsterdam and technical dev from LeWagon. He worked for EdTech and FoodTech industry as a growth marketer. Since 2016, he's helping startups and corporates to find new ways to grow.
-He's passionate about blockchain technology and AI. He's looking for new opportunities into this space as a growth marketer/product marketer. User Acquisition, Conversion Optimization and Retention, that's his specialization https://www.linkedin.com/in/jeddi-mees-i-do-growth/
-
-WARNING : *this a student project and has to be taken as his, without any warranty of any kind. Use at you own risk.* This is our final project for [TheSchool.AI](https://www.theschool.ai), a decentralized application course by Siraj Raval. This Whitepaper is inspired by the one from iExec and the OpenMined project. We talk a lot of iExec & OpenMined because it is the core technology we use for our project, but we have no link or affiliation of any kind with iExec.
+Benoit C, Matthew McAteer, Alexandre Moreau, Jeddi Mees.
 
 ## Introduction
 
@@ -133,6 +110,31 @@ _Phase 3_: Release and further real-world testing (starting Q4 2018 - Q1 2019)
 This project is currently without cost and has no assigned budget. Development is fueled by volunteers who contribute part-time, and the kind donors of computing power on the testnet. As such, we also do not plan to launch an ICO. Aside from the risks of an ICO (such as needing to spend disproportionate amounts of capital on marketing instead of engineering), we have enough faith in humanity for it to contribute towards helping us achieve our collective development goals.
 
 (Note: We have imposed a very minor transaction fee on transactions made using our Dapp to finance teambuilding excursions once a week.)
+
+## TEAM
+
+We build a great team to be able to achieve our goal.
+
+### Benoît Courty
+(https://avatars2.githubusercontent.com/u/6603048?s=400&u=63de9f6f8e387609dffc0e2d92170dfb804600da&v=4)
+French technical project manager who works as a free-lance in big company in energy, insurance , e-commerce and TV since 1999. He also co-founded an UAV start-up, Neo-Robotix, that unfortunately didn't find his market fit.
+
+He's deeply looking at blockchain technology since one year, beginning with trading, then mining and now with development of smart contract and decentralized computing with project like iExec. As you can see in his GitHub :https://github.com/trancept/
+
+### Matthew McAteer
+(https://avatars2.githubusercontent.com/u/16986576?s=460&v=4)
+Matthew is a Developer at Inkrypt, a company working on using IPFS to create censorship-resistant journalism tools, and Data Scientist at HelloFriend, which works on consumer DApps for event organizing and social media. Matthew has also worked with Companies such as Google and Suspect Technologies, and is a Graduate of Brown University. 
+
+### Alexandre Moreau
+(https://dgivdslhqe3qo.cloudfront.net/careers/members/9172/thumb_avatar_1526567146.jpg)
+Alexandre graduated in 2016 as a Computer Science engineer specialized in Robotics from the Institut polytechnique de Bordeaux in France. He currently works as an Integration Engineer at Deepomatic, a start-up specialized in Deep-Learning and video recognition systems. Before that, he worked as a R&D Software Engineer at another startup specialized in 3D printing and completed three research internships in Bioinformatics, Computer Graphics and High Performance Computing.
+
+### Jeddi Mees
+(https://pbs.twimg.com/profile_images/810932888271224832/yQMkxbg0_400x400.jpg)
+Growth hacker from the Growth Tribe Academy in Amsterdam and technical dev from LeWagon. He worked for EdTech and FoodTech industry as a growth marketer. Since 2016, he's helping startups and corporates to find new ways to grow.
+He's passionate about blockchain technology and AI. He's looking for new opportunities into this space as a growth marketer/product marketer. User Acquisition, Conversion Optimization and Retention, that's his specialization https://www.linkedin.com/in/jeddi-mees-i-do-growth/
+
+WARNING : *this a student project and has to be taken as his, without any warranty of any kind. Use at you own risk.* This is our final project for [TheSchool.AI](https://www.theschool.ai), a decentralized application course by Siraj Raval. This Whitepaper is inspired by the one from iExec and the OpenMined project. We talk a lot of iExec & OpenMined because it is the core technology we use for our project, but we have no link or affiliation of any kind with iExec.
 
 ## REFERENCES
 
