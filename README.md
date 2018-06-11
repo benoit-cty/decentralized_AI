@@ -1,12 +1,23 @@
 # Decentralized AI (final project for Siraj's School of AI)
 
 ## Authors
-Benoit C, Matthew McAteer, Alexandre Moreau, Jeddi Mees, Anita, Benas Z, & Taleb Marwen
+Benoit C, Matthew McAteer, Alexandre Moreau and Jeddi Mees
 
 This is a first try at building a "Decentralized AI". Well it is just a semantic segmentation task that run in a decentralized fashion : The task is done on a machine in the internet, like in a proprietary cloud, but on a decentralized cloud : you do not have to create an account with the computer owner. All is handle by iExec.
 
 The semantic segmentation is done by the [Mask RCNN](https://github.com/matterport/Mask_RCNN) project trained on the [COCO Dataset](http://cocodataset.org/).
 
+Submit an image :
+![FrontUI](https://raw.githubusercontent.com/trancept/decentralized_AI/master/img/front_ai2.jpg)
+
+Get the result in the work tab :
+![FrontUIWork](https://raw.githubusercontent.com/trancept/decentralized_AI/master/img/front-work.jpg)
+
+And you are done :
+![SampleResult](https://raw.githubusercontent.com/trancept/decentralized_AI/master/img/iexec-team-MRCNN.png)
+
+
+Other sample :
 ![MASK_R-CNN](https://github.com/trancept/decentralized_AI/blob/master/img/20180604_143926.png)
 
 The Docker image was based on the Modern Deep-learning container from [Waleed Abdulla](https://hub.docker.com/r/waleedka/modern-deep-learning/), with the Mask RCNN added into it along with a modified version of the demo packaged for iExec.
@@ -19,21 +30,30 @@ The V2 is just out (speaking from 1st of June 2018).
 
 The result is that you can call it quite like an API to get your resulting image :
 
-# How to Run 
-## iExec Side
+For more background info read our [Whitepaper](https://github.com/trancept/decentralized_AI/blob/master/whitepaper/whitepaper.md).
 
+# How to Run 
+## iExec Front Side
+
+You could use it on the browser : http://nrxubuntu.eastus2.cloudapp.azure.com/
+
+Get ETH and RLC for Kovan :
+. Connect to Metamask and switch to Kovan Ethereum test network. Ask for free ETH on [Kovan faucet](https://gitter.im/kovan-testnet) and for free RLC on [iExec marketplace](https://market.iex.ec/), then transfert RLC from your wallet to your "account" (on top left of [iExec marketplace](https://market.iex.ec/))
+
+Build it from source :
 ```
 cd frontend
 npm install
 npm run dev
 ```
 Your browser will automatically go to localhost:8081 so you can access the frontend.
-. Connect to Metamask and switch to Kovan Ethereum test network. Ask for free ETH on [Kovan faucet](https://gitter.im/kovan-testnet) and for free RLC on [iExec marketplace](https://market.iex.ec/), then transfert RLC from your wallet to your "account" (on top left of [iExec marketplace](https://market.iex.ec/))
 . Choose an image from your harddisk or copy-past an url.
 . Choose a worker in the list on the right.
 . Click on "iExec" button.
 
 ## OpenMined Side
+
+In [openmined](https://github.com/trancept/decentralized_AI/tree/master/openmined) folder you will find a demo of how to use Open Mined to train a model using decentralized grid computing capabilities.
 
 # How we make it
 
