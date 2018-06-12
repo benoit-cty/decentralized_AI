@@ -3,7 +3,9 @@
 ## Authors
 Benoit C, Matthew McAteer, Alexandre Moreau and Jeddi Mees
 
-This is a first try at building a "Decentralized AI". Well it is just a semantic segmentation task that run in a decentralized fashion : The task is done on a machine in the internet, like in a proprietary cloud, but on a decentralized cloud : you do not have to create an account with the computer owner. All is handle by iExec.
+For more background info read our [Whitepaper](https://github.com/trancept/decentralized_AI/blob/master/whitepaper/whitepaper.md).
+
+This is our try at building a "Decentralized AI". Well it is just a semantic segmentation task that run in a decentralized fashion : The task is done on a machine in the internet, like in a proprietary cloud, but on a decentralized cloud : you do not have to create an account with the computer owner. All is handle by iExec.
 
 The semantic segmentation is done by the [Mask RCNN](https://github.com/matterport/Mask_RCNN) project trained on the [COCO Dataset](http://cocodataset.org/).
 
@@ -29,8 +31,6 @@ The V2 is just out (speaking from 1st of June 2018).
 [iExec SDK](https://github.com/iExecBlockchainComputing/iexec-sdk) is a NodeJS application who allow to easily create and manage your application.
 
 The result is that you can call it quite like an API to get your resulting image :
-
-For more background info read our [Whitepaper](https://github.com/trancept/decentralized_AI/blob/master/whitepaper/whitepaper.md).
 
 # How to Run 
 ## iExec Front Side
