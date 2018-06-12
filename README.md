@@ -1,7 +1,7 @@
 # Decentralized AI (final project for Siraj's School of AI)
 
 ## Authors
-Benoit C, Matthew McAteer, Alexandre Moreau and Jeddi Mees
+Benoit Courty, Matthew McAteer, Alexandre Moreau and Jeddi Mees
 
 For more background info read our [Whitepaper](https://github.com/trancept/decentralized_AI/blob/master/whitepaper/whitepaper.md).
 
