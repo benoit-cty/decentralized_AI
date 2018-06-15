@@ -99,33 +99,30 @@ visualize.display_instances(image, r['rois'], r['masks'], r['class_ids'],
                                 class_names, r['scores'])
 output_file = "{}/{}.png".format("/iexec", datetime.now().strftime('%Y%m%d_%H%M%S'))
 print("Save results to ", output_file)
-plt.savefig(output_file, bbox_inches='tight', pad_inches='-0.1')
+plt.savefig(output_file, bbox_inches='tight', pad_inches=0)
 print('# Save /iexec/consensus.iexec for the PoCo verification')
 consensus_file = "/iexec/consensus.iexec"
 boxes = r['rois']
 masks = r['masks']
 class_ids = r['class_ids']
+scores = r['scores']
 consensus = ""
 N = r['rois'].shape[0]
 for i in range(N):
-        # Bounding box
-        if not np.any(boxes[i]):
-            # Skip this instance. Has no bbox
-            continue
-        y1, x1, y2, x2 = boxes[i]
-        rectangle = "  Box = " + x1 +"x"+ y1 + " " + x2 + "x" + y2 
+	# Bounding box
+	if not np.any(boxes[i]):
+	    # Skip this instance. Has no bbox
+	    continue
+	y1, x1, y2, x2 = boxes[i]
+	rectangle = "  Box = " + str(x1) +"x"+ str(y1) + " " + str(x2) + "x" + str(y2) 
 
-        # Label
-        if not captions:
-            class_id = class_ids[i]
-            score = scores[i] if scores is not None else None
-            label = class_names[class_id]
-            x = random.randint(x1, (x1 + x2) // 2)
-            caption = "{} {:.3f}".format(label, score) if score else label
-        else:
-            caption = captions[i]
-        consensus += caption + rectangle
-
+	# Label
+	class_id = class_ids[i]
+	score = scores[i] if scores is not None else None
+	label = class_names[class_id]
+	x = random.randint(x1, (x1 + x2) // 2)
+	caption = "{} {:.3f}".format(label, score) if score else label
+	consensus += caption + rectangle + "\r\n"
 
 print("r['masks']:", r['masks'])
 print("r['scores']:", r['scores'])
