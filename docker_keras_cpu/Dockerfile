@@ -76,12 +76,14 @@ RUN pip3 --no-cache-dir install imgaug IPython
 RUN mkdir -p /root/.config/matplotlib/ && echo "backend : Agg" > /root/.config/matplotlib/matplotlibrc
 
 # Install Mask_RCNN
-RUN  git clone --depth 1  https://github.com/matterport/Mask_RCNN.git /usr/local/src/Mask_RCNN
+#RUN  git clone --depth 1  https://github.com/matterport/Mask_RCNN.git /usr/local/src/Mask_RCNN
+RUN  git clone --depth 1 https://github.com/gtgalone/Mask_RCNN.git /usr/local/src/Mask_RCNN
+RUN git checkout fix-keras-engine-topology
 RUN cd /usr/local/src/Mask_RCNN && $(which python3) setup.py install
 
 RUN wget --quiet https://github.com/matterport/Mask_RCNN/releases/download/v2.0/mask_rcnn_coco.h5 -O /usr/local/src/Mask_RCNN/mask_rcnn_coco.h5
 
 WORKDIR "/usr/local/src/Mask_RCNN/samples"
-ADD markrcnn.py /usr/local/src/Mask_RCNN/samples
+ADD maskrcnn.py /usr/local/src/Mask_RCNN/samples
 # CMD ["/bin/bash"]
-ENTRYPOINT ["/bin/bash", "-c",  "/usr/local/src/Mask_RCNN/samples/markrcnn.py \"$@\"", "--"]
+ENTRYPOINT ["/bin/bash", "-c",  "/usr/local/src/Mask_RCNN/samples/maskrcnn.py \"$@\"", "--"]

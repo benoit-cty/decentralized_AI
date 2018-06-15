@@ -18,8 +18,6 @@ os.environ["CUDA_VISIBLE_DEVICES"] = ""
 # Root directory of the project
 ROOT_DIR = os.path.abspath("../")
 
-
-
 # Import Mask RCNN
 sys.path.append(ROOT_DIR)  # To find local version of the library
 from mrcnn import utils
@@ -51,9 +49,8 @@ if len(sys.argv) > 1:
     #urllib.request.urlretrieve(str(sys.argv[1]), input_file)
     input_file, headers = urllib.request.urlretrieve(str(sys.argv[1]))
 else:
-    print("# Load a random image from the images folder")
-    file_names = next(os.walk(IMAGE_DIR))[2]
-    input_file = random.choice(file_names)
+    print("# ERROR : You need to provide an image URL as a parameter !")
+    quit(-1)
 
 image = skimage.io.imread(os.path.join(IMAGE_DIR, input_file))
 
@@ -103,3 +100,38 @@ visualize.display_instances(image, r['rois'], r['masks'], r['class_ids'],
 output_file = "{}/{}.png".format("/iexec", datetime.now().strftime('%Y%m%d_%H%M%S'))
 print("Save results to ", output_file)
 plt.savefig(output_file, bbox_inches='tight', pad_inches='-0.1')
+print('# Save /iexec/consensus.iexec for the PoCo verification')
+consensus_file = "/iexec/consensus.iexec"
+boxes = r['rois']
+masks = r['masks']
+class_ids = r['class_ids']
+consensus = ""
+N = r['rois'].shape[0]
+for i in range(N):
+        # Bounding box
+        if not np.any(boxes[i]):
+            # Skip this instance. Has no bbox
+            continue
+        y1, x1, y2, x2 = boxes[i]
+        rectangle = "  Box = " + x1 +"x"+ y1 + " " + x2 + "x" + y2 
+
+        # Label
+        if not captions:
+            class_id = class_ids[i]
+            score = scores[i] if scores is not None else None
+            label = class_names[class_id]
+            x = random.randint(x1, (x1 + x2) // 2)
+            caption = "{} {:.3f}".format(label, score) if score else label
+        else:
+            caption = captions[i]
+        consensus += caption + rectangle
+
+
+print("r['masks']:", r['masks'])
+print("r['scores']:", r['scores'])
+print("r['rois']:", r['rois'])
+print("r['class_ids']:", r['class_ids'])
+print(consensus)
+with open(consensus_file, 'w') as fp:
+	fp.write(consensus)
+	fp.close()
