@@ -103,7 +103,6 @@ plt.savefig(output_file, bbox_inches='tight', pad_inches=0)
 print('# Save /iexec/consensus.iexec for the PoCo verification')
 consensus_file = "/iexec/consensus.iexec"
 boxes = r['rois']
-masks = r['masks']
 class_ids = r['class_ids']
 scores = r['scores']
 consensus = ""
@@ -114,7 +113,7 @@ for i in range(N):
 	    # Skip this instance. Has no bbox
 	    continue
 	y1, x1, y2, x2 = boxes[i]
-	rectangle = "  Box = " + str(x1) +"x"+ str(y1) + " " + str(x2) + "x" + str(y2) 
+	rectangle = "  Box = " + str(x1) +"x"+ str(y1) + " " + str(x2) + "x" + str(y2)
 
 	# Label
 	class_id = class_ids[i]
@@ -123,12 +122,7 @@ for i in range(N):
 	x = random.randint(x1, (x1 + x2) // 2)
 	caption = "{} {:.3f}".format(label, score) if score else label
 	consensus += caption + rectangle + "\r\n"
-
-print("r['masks']:", r['masks'])
-print("r['scores']:", r['scores'])
-print("r['rois']:", r['rois'])
-print("r['class_ids']:", r['class_ids'])
-print(consensus)
+#print(consensus)
 with open(consensus_file, 'w') as fp:
 	fp.write(consensus)
 	fp.close()
