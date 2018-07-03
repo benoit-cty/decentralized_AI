@@ -46,10 +46,8 @@
 export default {
     data () {
         return {
-            loading: true,
             selected: [],
             search: '',
-            orders: [],
             headers: [
             { text: 'ID', value: 'id' },
             { text: 'Price (RLC)', value: 'value' },
@@ -61,51 +59,18 @@ export default {
         }
     },
     props: {
-        contracts: {
-            type: Object
-        },
         value: {
             type: String
         },
         category: {
             type: Number
+        },
+        orders: {
+            type: Array
+        },
+        loading: {
+            type: Boolean
         }
-    },
-    mounted () {
-        this.updateOrders()
-    },
-    watch: {
-        contracts (contracts) {
-            this.updateOrders();
-        }
-    },
-    methods: {
-        async updateOrders () {
-            if (!this.contracts) return
-            this.loading = true
-            this.orders = []
-            const marketplaceAddress = await this.contracts.fetchMarketplaceAddress();
-            for (let i = 100; i < 400; i++) {
-                this.contracts
-                    .getMarketplaceContract({ at: marketplaceAddress })
-                    .getMarketOrder(i.toString())
-                    .then((order) => {
-                        if (order && order.category.toNumber() === this.category) {
-                            this.orders.push({
-                                category: order.category.toNumber(),
-                                remaining: order.remaining.toNumber(),
-                                value: order.value.toNumber(),
-                                volume: order.volume.toNumber(),
-                                workerpool: order.workerpool,
-                                trust: order.trust.toString(),
-                                direction: order.direction.toString(),
-                                id: i
-                            })
-                        }
-                    })
-            }
-            this.loading = false
-        }
-    },
+    }
 }
 </script>
