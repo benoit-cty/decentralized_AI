@@ -152,8 +152,9 @@
         uploading: false,
         message: "",
         orderId: null,
-        dapp: '0xec3CF9FF711268ef329658DD2D233483Bd0127e6',
-      }
+
+        dapp: '0x3cace633165f64fade456f8e3f18051505531d80',
+      }// 0xec3CF9FF711268ef329658DD2D233483Bd0127e6
     },
     computed: {
       contracts () {
@@ -236,7 +237,7 @@
           '0x0000000000000000000000000000000000000000', // dataset
           this.params,
           '0x0000000000000000000000000000000000000000', // callback
-          this.$account, // beneficiary
+          '0x0000000000000000000000000000000000000000', // beneficiary
         ]
         const aIexecHubInstance = await this.contracts.getHubContract()
         const txMined = await aIexecHubInstance.buyForWorkOrder(...args, {
@@ -248,6 +249,7 @@
 
         if (receipt.status === "0x0") {
           this.notify('Error processing the transaction')
+          console.log(receipt);
         }
         const events = await Extensions.getEventsPromise(aIexecHubInstance.WorkOrderActivated({}),orderId,10000000);
         let woid = events[0].args.woid;
