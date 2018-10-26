@@ -47,8 +47,8 @@ export default {
             const result = await this.$http.post('https://gateway.iex.ec/works', {"chainID":chain})
             this.works = result.body.works
             this.loading = false
-            console.log(this.works)
-            console.log(result)
+            //console.log(this.works)
+            //console.log(result)
         }
     },
     components: {
